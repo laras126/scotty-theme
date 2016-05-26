@@ -1,7 +1,7 @@
 Header
 - Logo
 - Nav items
-- Tagline
+- Tagline - text field, under 250 chars.
 
 Home
 - Tagline intro
@@ -28,6 +28,13 @@ Services
   - Title
   - Sentence description
   - Icon
+
+Clients
+- Name
+- Photo
+- Logo
+- Service description
+- Call to action
 
 Blog
 - List of blog posts
