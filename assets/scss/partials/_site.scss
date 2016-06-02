@@ -1,0 +1,9 @@
+.site-logo-link {
+  @include upperspace;
+  font-size: $size-h3;
+}
+
+.site-description {
+  margin-top: 0;
+  font-size: $size-sml;
+}
