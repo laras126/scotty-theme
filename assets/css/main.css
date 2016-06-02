@@ -369,18 +369,29 @@ th {
 .spacer-bot {
   margin-bottom: 1.1rem; }
 
+* {
+  box-sizing: border-box; }
+
+img {
+  max-width: 100%; }
+
+.wrapper {
+  max-width: 52em;
+  width: 93%;
+  margin: 0 auto; }
+
 body {
-  font-family: "Helvetica", sans-serif;
+  font-family: "roboto", sans-serif;
   line-height: 1.5; }
 
 a,
 a:visited,
 a:link {
-  color: #0062D4;
+  color: #4e768d;
   text-decoration: none; }
 
 a:hover, a:focus {
-  color: #00336e; }
+  color: #2a3f4c; }
 a:active {
   color: black; }
 
@@ -421,13 +432,13 @@ small {
   font-size: 0.88rem; }
 
 .btn-default {
-  background-color: #334D5C;
+  background-color: #001b3b;
   color: #fefefe;
   padding: 1.1rem 1.54rem;
   text-decoration: none; }
 
 .btn-info {
-  background-color: #57849e;
+  background-color: #004aa1;
   color: #1F232A;
   padding: 1.1rem 1.54rem;
   text-decoration: none; }
@@ -457,7 +468,7 @@ input[type="url"],
 input[type="search"],
 input[type="tel"] {
   width: 100%;
-  border: 1px dotted #0062D4; }
+  border: 1px dotted #4e768d; }
   textarea:focus,
   input[type="text"]:focus,
   input[type="password"]:focus,
@@ -472,12 +483,21 @@ input[type="tel"] {
   input[type="url"]:focus,
   input[type="search"]:focus,
   input[type="tel"]:focus {
-    border-color: #0062D4; }
+    border-color: #4e768d; }
 
 input[type="radio"],
 input[type="checkbox"] {
   line-height: normal;
   cursor: pointer; }
+
+.site-logo-link {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 1.98rem; }
+
+.site-description {
+  margin-top: 0;
+  font-size: 0.88rem; }
 
 .nav-main {
   max-height: 0;
@@ -498,21 +518,11 @@ input[type="checkbox"] {
       flex-wrap: wrap; } }
 
 .nav-item-link {
-  padding: 1.4rem; }
+  padding: 0.66rem;
+  display: block; }
 
 @media (min-width: 52em) {
   .nav-trigger {
     display: none; } }
-
-* {
-  box-sizing: border-box; }
-
-img {
-  max-width: 100%; }
-
-.wrapper {
-  max-width: 52em;
-  width: 93%;
-  margin: 0 auto; }
 
 /*# sourceMappingURL=main.css.map */
