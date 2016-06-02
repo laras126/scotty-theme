@@ -370,23 +370,23 @@ th {
   margin-bottom: 1.1rem; }
 
 body {
-  font-family: Helvetica, sans-serif;
+  font-family: "Helvetica", sans-serif;
   line-height: 1.5; }
 
 a,
 a:visited,
 a:link {
-  color: #45B29D;
+  color: #0062D4;
   text-decoration: none; }
 
 a:hover, a:focus {
-  color: #29685c; }
+  color: #00336e; }
 a:active {
   color: black; }
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.5;
-  font-family: Georgia, serif;
+  font-family: "ltc-bodoni-175", serif;
   margin-bottom: 0; }
 
 h1 {
@@ -457,7 +457,7 @@ input[type="url"],
 input[type="search"],
 input[type="tel"] {
   width: 100%;
-  border: 1px dotted #45B29D; }
+  border: 1px dotted #0062D4; }
   textarea:focus,
   input[type="text"]:focus,
   input[type="password"]:focus,
@@ -472,7 +472,7 @@ input[type="tel"] {
   input[type="url"]:focus,
   input[type="search"]:focus,
   input[type="tel"]:focus {
-    border-color: #45B29D; }
+    border-color: #0062D4; }
 
 input[type="radio"],
 input[type="checkbox"] {
