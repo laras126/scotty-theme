@@ -1,17 +1,17 @@
 
 /
 
-/about
+/mission
 /contact
 
-/services
-/services/service-name
+/options
+/options/option-name --- maybe
 
 /clients
-/clients/client-name
+/clients/client-name -- maybe
 
-/recipes
-/recipes/punches/recipe-name
+/explore
+/e/punches/recipe-name
 /recipes/stirred/recipe-name
 
 /blog

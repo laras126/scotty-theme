@@ -10,7 +10,7 @@ Home
 - Icon and link out to each service
 - Prompt to contact
 
-About
+Mission
 - Photo
 - Concise tagline, 2 sentences
 - A few paragraphs
@@ -20,7 +20,7 @@ Contact
 - Tagline prompt
 - Written phone number and email
 
-Services
+Options
 - Tagline about services
 - Enticing photo
 - Paragraph intro
@@ -29,14 +29,14 @@ Services
   - Sentence description
   - Icon
 
-Clients
+Clients - may be incorporated into another page
 - Name
 - Photo
 - Logo
 - Service description
 - Call to action
 
-Blog
+Explore
 - List of blog posts
   - Post category
   - Post title
