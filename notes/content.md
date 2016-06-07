@@ -20,7 +20,7 @@ Contact
 - Tagline prompt
 - Written phone number and email
 
-Options
+Options - Parent Page
 - Tagline about services
 - Enticing photo
 - Paragraph intro
@@ -28,13 +28,6 @@ Options
   - Title
   - Sentence description
   - Icon
-
-Clients - may be incorporated into another page
-- Name
-- Photo
-- Logo
-- Service description
-- Call to action
 
 Explore
 - List of blog posts
