@@ -32,7 +32,9 @@ $screen-lg: 		60em;
 // Aw man, I love Kuler:
 // http://adobe.ly/1wwZ0Rk
 
-$dark-blue: 	#334D5C;
+$blue:        #0062D4;
+$dark-blue: 	darken($blue, 20%);
+$grey:        lighten(#334D5C, 15%);
 $teal: 				#45B29D;
 $yellow: 			#EFC94C;
 $orange: 			#E27A3F;
@@ -49,7 +51,7 @@ $black: #1F232A;
 
 // These are nice utility colors
 $color-accent-light: 	$yellow;
-$color-accent-med: 		$teal;
+$color-accent-med: 		$grey;
 $color-accent-dark:		$dark-blue;
 
 $color-text-light: 		$white;
@@ -83,6 +85,7 @@ $color-rotate-link:   $color-accent-light;
 
 
 $size-base:  		1.1rem;
+$size-xsml:     $size-base*0.6;
 $size-sml:  		$size-base*0.8;
 
 $size-h1:  			$size-base*2.6;
@@ -100,8 +103,8 @@ $size-h6:  			$size-sml;
 
 // Pretty standard.
 
-$sans-serif: 		Helvetica, sans-serif;
-$serif:         Georgia, serif;
+$sans-serif: 		'roboto', sans-serif;
+$serif:         'ltc-bodoni-175', serif;
 
 // If you are using webfonts and are a good girl/boy, you will define some fallbacks (see the top of _typography.scss for where to use them):
 
