@@ -1,5 +1,15 @@
 
 {# No specific markup for the home page, yet. Add it here inside a content block! #}
 
-{% extends "page.twig" %}
+{% extends "base.twig" %}
 
+{% block content %}
+
+  {% set img = TimberImage(post.hero_image) %}
+
+  <img src="{{img.src}}" alt="Hero Image">
+
+  <p class="hero-tagline-main">{{post.main_tagline}}</p>
+  <p class="hero-tagline-sub">{{post.sub_tagline}}</p>
+
+{% endblock %}
