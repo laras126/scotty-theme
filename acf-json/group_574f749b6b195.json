@@ -30,6 +30,11 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "page"
+            },
+            {
+                "param": "page_type",
+                "operator": "!=",
+                "value": "front_page"
             }
         ]
     ],
@@ -41,5 +46,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1464825870
+    "modified": 1465339980
 }
