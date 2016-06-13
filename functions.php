@@ -14,7 +14,14 @@ class StarterSite extends TimberSite {
 
 	// This function applies some fundamental WordPress setup, as well as our functions to include custom post types and taxonomies.
 	function __construct() {
-		add_theme_support( 'post-formats' );
+		add_theme_support( 'post-formats',
+			array(
+				'image',
+				'gallery',
+				'video',
+				'quote',
+				'link'
+		) );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'menus' );
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
@@ -87,8 +94,8 @@ new StarterSite();
 function my_scripts() {
 
 	// Use jQuery from a CDN
-	wp_deregister_script('jquery');
-	wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', array(), null, true);
+	// wp_deregister_script('jquery');
+	// wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', array(), null, true);
 
 	// Enqueue our stylesheet and JS file with a jQuery dependency.
 	// Note that we aren't using WordPress' default style.css, and instead enqueueing the file of compiled Sass.
