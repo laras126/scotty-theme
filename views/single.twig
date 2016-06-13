@@ -1,12 +1,23 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<div class="content-wrapper">
-		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-			<section class="article-content">
-				<h1 class="article-title">{{post.title}}</h1>
-				{{post.content}}
-			</section>
-		</article>
-	</div><!-- /content-wrapper -->
+	<article class="post-type-{{post.post_type}} post-format-{{post.format}}" id="post-{{post.ID}}">
+    <header class="article-header contain-sm">
+			<h1 class="article-title">{{post.title}}</h1>
+    </header>
+    <section class="article-content">
+			{% include 'partials/content-blocks.twig' %}
+		</section>
+    <footer class="article-footer contain-sm">
+      {# TODO: prev next nav here #}
+      {# {% if post.previous %}
+        {{post.previous.link}}
+      {% endif %}
+      {% if post.next %}
+        {{post.next.link}}
+      {% endif %} #}
+      {# Social media share #}
+      {# Possibly comments #}
+    </footer>
+	</article>
 {% endblock %}
