@@ -1,35 +1,18 @@
-{% for block in post.get_field('content_blocks') %}
+
+{% for block in post.get_field('blocks') %}
+
+  {% set block_class = block.acf_fc_layout %}
 
   {% if block.acf_fc_layout == 'testimonial' %}
-    <blockquote>{{block.testimonial_text}}</blockquote>
-    <p>
-      {% if block.source_link %}
-        <a href="{{block.source_link}}" target="blank">
-      {% endif %}
-      {{block.source}}
-      {% if block.source_link %}
-        </a>
-      {% endif %}
-    </p>
+    {% include 'blocks/testimonial.twig' %}
   {% elseif block.acf_fc_layout == 'text' %}
-    <h3>{{block.section_heading}}</h3>
-  {% elseif block.acf_fc_layout == 'connected_pages' %}
-{#
-    <pre>
-    {{dump(block.pages)}}
-    </pre>
- #}
-    {% for id in block.pages %}
-      {% set page = TimberPost(id) %}
-      <img src="{{page.thumbnail.src('thumbnail')}}" srcset="
-        {{page.thumbnail.src('medium')}} 800w,
-        {{page.thumbnail.src('large')}} 1024w"
-        alt="Thumbnail">
-
-      {# <img src="{{page.thumbnail.src('medium')}}"> #}
-      <h4>{{page.title}}</h4>
-    {% endfor %}
-
+    {% include 'blocks/text.twig' with { contain : 'contain-sm' } %}
+  {% elseif block.acf_fc_layout == 'connected_items' %}
+    {% include 'blocks/connected-items.twig' %}
+  {% elseif block.acf_fc_layout == 'inline_elements' %}
+    {% include 'blocks/inline-elements.twig' with { contain : 'contain-sm' } %}
+  {% elseif block.acf_fc_layout == 'image' %}
+    {% include 'blocks/image.twig' with { contain : block.size } %}
   {% endif %}
-  <hr>
+
 {% endfor %}
