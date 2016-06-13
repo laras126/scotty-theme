@@ -17,6 +17,21 @@
 	text-align: right;
 }
 
+// Based on WP's naming conventions
+
+.alignright {
+  float: right;
+}
+
+.alignleft {
+  float: left;
+}
+
+.aligncenter {
+  display: block;
+  margin: 0 auto;
+}
+
 
 // I also like to have some spacer classes. Again, scoff at their non-semantic-ness if you feel like it, but I find them immensely useful, particularly when working within a CMS.
 // Note that I use the $size-base unit from the sizing scale set in _variables.scss.
