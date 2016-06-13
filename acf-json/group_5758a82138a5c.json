@@ -1,11 +1,11 @@
 {
     "key": "group_5758a82138a5c",
-    "title": "Content Blocks",
+    "title": "Blocks",
     "fields": [
         {
             "key": "field_5758a830a128c",
-            "label": "Content Blocks",
-            "name": "content_blocks",
+            "label": "Blocks",
+            "name": "blocks",
             "type": "flexible_content",
             "instructions": "Use these blocks to add content to the page and reorder it.",
             "required": 0,
@@ -23,7 +23,7 @@
                     "key": "5758a83990399",
                     "name": "text",
                     "label": "Text",
-                    "display": "row",
+                    "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_5758a886a128d",
@@ -51,9 +51,9 @@
                             "label": "Section Text",
                             "name": "section_text",
                             "type": "wysiwyg",
-                            "instructions": "",
-                            "required": "",
-                            "conditional_logic": "",
+                            "instructions": "The paragraph text for this section.",
+                            "required": 0,
+                            "conditional_logic": 0,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -62,7 +62,7 @@
                             "default_value": "",
                             "tabs": "all",
                             "toolbar": "basic",
-                            "media_upload": ""
+                            "media_upload": 0
                         }
                     ],
                     "min": "",
@@ -137,17 +137,189 @@
                     "max": ""
                 },
                 {
+                    "key": "575ee6435a5e6",
+                    "name": "image",
+                    "label": "Image",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_575ee6435a5e8",
+                            "label": "Image",
+                            "name": "image",
+                            "type": "image",
+                            "instructions": "Upload the image for this block. If you would like a <strong>caption<\/strong> for the image, fill in the Caption field in the image editor.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": 50,
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
+                            "key": "field_575ee6635a5ea",
+                            "label": "Size",
+                            "name": "size",
+                            "type": "radio",
+                            "instructions": "<strong>Large<\/strong> images will extend beyond the width of the text.\r\n<strong>Medium<\/strong> images are the size of the text.\r\n<strong>Small<\/strong> images are, surprise, smaller and centered.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": 50,
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "contain-sm": "Small",
+                                "contain-md": "Medium",
+                                "contain-lg": "Large"
+                            },
+                            "allow_null": 1,
+                            "other_choice": 0,
+                            "save_other_choice": 0,
+                            "default_value": "Medium",
+                            "layout": "vertical"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "575ee70f5a5eb",
+                    "name": "inline_elements",
+                    "label": "Inline Elements & Text",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_575ee7845a5f0",
+                            "label": "Elements",
+                            "name": "elements",
+                            "type": "flexible_content",
+                            "instructions": "Elements will appear inline with the text. There should always be one or two text blocks between other elements. Images will extend slightly beyond the text width to the right or left.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "button_label": "Add Element",
+                            "min": "",
+                            "max": "",
+                            "layouts": [
+                                {
+                                    "key": "575ee79a1bb2a",
+                                    "name": "image",
+                                    "label": "Image",
+                                    "display": "block",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_575ee7bf5a5f1",
+                                            "label": "Image",
+                                            "name": "image",
+                                            "type": "image",
+                                            "instructions": "",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": 50,
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "id",
+                                            "preview_size": "thumbnail",
+                                            "library": "all",
+                                            "min_width": "",
+                                            "min_height": "",
+                                            "min_size": "",
+                                            "max_width": "",
+                                            "max_height": "",
+                                            "max_size": "",
+                                            "mime_types": ""
+                                        },
+                                        {
+                                            "key": "field_575ee7d15a5f2",
+                                            "label": "Alignment",
+                                            "name": "alignment",
+                                            "type": "radio",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": 50,
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "choices": {
+                                                "alignleft": "Left",
+                                                "alignright": "Right"
+                                            },
+                                            "allow_null": 1,
+                                            "other_choice": 0,
+                                            "save_other_choice": 0,
+                                            "default_value": "alignleft",
+                                            "layout": "vertical"
+                                        }
+                                    ],
+                                    "min": "",
+                                    "max": ""
+                                },
+                                {
+                                    "key": "575ee81a5a5f3",
+                                    "name": "text",
+                                    "label": "Text",
+                                    "display": "block",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_575ee8215a5f4",
+                                            "label": "Text",
+                                            "name": "text",
+                                            "type": "wysiwyg",
+                                            "instructions": "It is recommended to use only basic formatting, and to avoid headings. ",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "tabs": "all",
+                                            "toolbar": "basic",
+                                            "media_upload": 0
+                                        }
+                                    ],
+                                    "min": "",
+                                    "max": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                {
                     "key": "5758af57a4742",
-                    "name": "connected_pages",
-                    "label": "Connected Pages",
+                    "name": "connected_items",
+                    "label": "Connected Items",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_5758af57a4744",
-                            "label": "Connected Pages",
-                            "name": "pages",
+                            "label": "Connected Items",
+                            "name": "items",
                             "type": "relationship",
-                            "instructions": "Select three connected pages.",
+                            "instructions": "Select up to three connected posts or pages. These will automatically display the items' titles, featured image, and excerpt. \r\n\r\nThis field is useful for specific related posts or pages.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -156,14 +328,17 @@
                                 "id": ""
                             },
                             "post_type": [
-                                "page"
+                                "page",
+                                "post"
                             ],
                             "taxonomy": [],
                             "filters": [
                                 "search"
                             ],
-                            "elements": "",
-                            "min": 3,
+                            "elements": [
+                                "featured_image"
+                            ],
+                            "min": 1,
                             "max": 3,
                             "return_format": "id"
                         }
@@ -181,6 +356,13 @@
                 "operator": "==",
                 "value": "page"
             }
+        ],
+        [
+            {
+                "param": "post_format",
+                "operator": "==",
+                "value": "standard"
+            }
         ]
     ],
     "menu_order": 0,
@@ -188,8 +370,11 @@
     "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "custom_fields",
+        "author"
+    ],
     "active": 1,
     "description": "",
-    "modified": 1465430228
+    "modified": 1465844557
 }
