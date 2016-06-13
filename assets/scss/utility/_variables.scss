@@ -16,10 +16,10 @@
 // "Start with the small screen first, then expand until it looks like shit. Time for a breakpoint!"
 // -Stephen Hay
 
-$screen-xs: 		28em;
-$screen-sm: 		35em;
-$screen-md: 		52em;
-$screen-lg: 		60em;
+$screen-xs: 		440px;
+$screen-sm: 		620px;
+$screen-md: 		840px;
+$screen-lg: 		980px;
 
 
 
@@ -50,11 +50,13 @@ $black: #1F232A;
 // http://thesassway.com/beginner/variable-naming
 
 // These are nice utility colors
+$color-accent-vlight:  lighten($grey, 20%);
 $color-accent-light: 	$yellow;
 $color-accent-med: 		$grey;
 $color-accent-dark:		$dark-blue;
 
-$color-text-light: 		$white;
+$color-text-light:    $white;
+$color-text-med: 		  $grey;
 $color-text-dark: 		$black;
 
 $color-notice-success:	 $teal;
