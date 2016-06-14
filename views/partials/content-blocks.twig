@@ -13,6 +13,8 @@
     {% include 'blocks/inline-elements.twig' with { contain : 'contain-sm' } %}
   {% elseif block.acf_fc_layout == 'image' %}
     {% include 'blocks/image.twig' with { contain : block.size } %}
+  {% elseif block.acf_fc_layout == 'html' %}
+    {% include 'blocks/html.twig' with { contain : block.size } %}
   {% endif %}
 
 {% endfor %}
