@@ -5,7 +5,7 @@
   {% set img = TimberImage(block.image) %}
 
   <figure class="block-figure -{{block.size}}">
-    <img src="{{img.src}}" alt="">
+    <img src="{{img.src}}" class="full-image" alt="">
     {% if img.caption %}
       <figcaption>
         <p class="caption">{{img.caption}}</p>
