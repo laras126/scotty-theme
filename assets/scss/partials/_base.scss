@@ -20,6 +20,12 @@
 // General Selectors
 // ---
 
+body {
+  background-image: url(../img/prohib.png);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 img {
 	max-width: 100%;
 }
@@ -28,7 +34,6 @@ figure {
   margin: 0;
   padding: 0;
 }
-
 
 
 // ---
@@ -45,15 +50,6 @@ figure {
 // ---
 
 
-
-
-// ---
-// Media
-// ---
-
-
-
-
 // ---
 // Footer
 // ---
@@ -65,4 +61,7 @@ figure {
 // Misc Utilities
 // ---
 
-
+.edit-link {
+  @include meta($color-notice-warning);
+  font-weight: $font-weight-strong;
+}

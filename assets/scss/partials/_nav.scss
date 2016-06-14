@@ -7,7 +7,7 @@
 		max-height: $screen-md;
 	}
 
-	@include bp(md) {
+	@include bp(nav) {
 		max-height: none;
 	}
 }
@@ -16,25 +16,36 @@
 	list-style-type: none;
 	padding-left: 0;
 
-	@include bp(md) {
-		display: flex;
-		flex-wrap: wrap;
-		& > li {
-		}
+	@include bp(nav) {
+		@include grid;
 	}
 }
 
-	.nav-item-link {
+	a.nav-item-link,
+	a.nav-trigger {
+		@include upperspace;
 		padding: $size-xsml;
+		font-size: $size-sml;
+		color: $color-accent-vlight;
+		padding-top: $size-xsml;
+		padding-bottom: $size-xsml;
 		display: block;
 	}
 
 
 // Link to open the nav
 
-.nav-trigger {
+a.nav-trigger {
+	margin-top: $size-xsml;
+	border-top: $border-accent;
+	border-bottom: $border-accent;
+	width: 100%;
+	text-align: center;
+	// @include upperspace;
+	// padding-top: $size-xsml;
+	// padding-bottom: $size-xsml;
 
-	@include bp(md) {
+	@include bp(nav) {
 		display: none;
 	}
 

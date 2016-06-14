@@ -1,3 +1,22 @@
+// ----
+// Image Block
+// ----
+
+.block.-image {
+  text-align: center;
+}
+
+
+
+
+// ----
+// Inline Elements Block
+// ----
+
+.block.-inline_elements {
+  @include clearfix;
+}
+
 .inline-image {
   padding-bottom: $size-xsml;
   @include bp(md) {
@@ -25,5 +44,5 @@
     }
 
   }
-
 }
+

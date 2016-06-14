@@ -49,7 +49,7 @@ input[type="search"],
 input[type="tel"] {
 
 	width: 100%;
-	border: $color-accent-border;
+	border: $border-accent;
 
 	&:focus {
 		border-color: $color-accent-med;

@@ -32,6 +32,12 @@
   margin: 0 auto;
 }
 
+// Layout helpers
+
+.full-image {
+  width: 100%;
+}
+
 
 // I also like to have some spacer classes. Again, scoff at their non-semantic-ness if you feel like it, but I find them immensely useful, particularly when working within a CMS.
 // Note that I use the $size-base unit from the sizing scale set in _variables.scss.
