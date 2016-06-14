@@ -5,11 +5,12 @@
 
 {% block content %}
 
-  {% set img = TimberImage(post.hero_image) %}
+  <div class="article contain-md">
+    {% set img = TimberImage(post.hero_image) %}
 
-  <img src="{{img.src}}" alt="Hero Image">
+    <img src="{{img.src}}" alt="Hero Image">
 
-  <p class="hero-tagline-main">{{post.main_tagline}}</p>
-  <p class="hero-tagline-sub">{{post.sub_tagline}}</p>
-
+    <p class="hero-tagline-main">{{post.main_tagline}}</p>
+    <p class="hero-tagline-sub">{{post.sub_tagline}}</p>
+  </div>
 {% endblock %}
