@@ -1,0 +1,25 @@
+
+<article class="tease tease-{{post.post_type}}" id="tease-{{post.ID}}">
+  {% block tease_content %}
+    <div class="tease-inner">
+      <div class="tease-thumb">
+        {% if post.get_thumbnail %}
+          <a href="{{post.link}}">
+            <img src="{{post.thumbnail.src}}" />
+          </a>
+        {% else %}
+          <p class="meta">Please upload a post thumbnail.</p>
+        {% endif %}
+      </div>
+      <div class="tease-info">
+        <div class="tease-header">
+          <h2 class="tease-title"><a href="{{post.link}}">{{post.title}}</a></h2>
+          <span class="tease-date">{{post.date}}</span>
+        </div>
+        <p>{{post.get_preview}}</p>
+        {% include 'partials/edit-link.twig' %}
+      </div>
+    </div>
+  {% endblock %}
+</article>
+
