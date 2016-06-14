@@ -1,0 +1,40 @@
+.tease {
+  margin-bottom: $size-h3;
+  // padding-top: $size-base;
+  border-top: $border-accent;
+  background-color: rgba($color-text-light, 0.8);
+  padding: $size-base;
+}
+
+.tease-inner {
+  @include bp(sm) {
+    @include grid;
+  }
+}
+
+.tease-thumb {
+  @include bp(sm) {
+    @include cell(third);
+  }
+}
+
+.tease-header {
+  @include bp(sm) {
+    @include grid($wrap: wrap);
+    align-items: center;
+  }
+}
+
+.tease-info {
+}
+
+.tease-title {
+  margin-top: 0;
+  font-style: italic;
+  font-size: $size-h3;
+}
+
+.tease-date {
+  @include meta($color-accent-light);
+  font-style: italic;
+}
