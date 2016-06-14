@@ -1,7 +1,12 @@
 {% extends "base.twig" %}
 
 {% block content %}
+  <div class="contain-sm">
+    <h1 class="article-title">Articles</h1>
+  </div>
 	{% for post in posts %}
-		{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+    <div class="contain-md">
+  		{% include ['teases/tease-'~post.post_type~'.twig', 'teases/tease.twig'] %}
+    </div>
 	{% endfor %}
 {% endblock %}
