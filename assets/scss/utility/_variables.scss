@@ -38,11 +38,11 @@ $grey-blue:   lighten(#334D5C, 15%);
 $teal: 				#45B29D;
 $yellow: 			#EFC94C;
 $orange: 			#E27A3F;
-$red: 				#DF4949;
+$red: 				#B74538;
 
 // In art school I was told never to make white pure white and black pure black - not sure if that holds up for the world wide web, but maybe!
-$white: #E5E7E7;
-$black: #1A1A1A;
+$white: #FFF;
+$black: #1E1E1E;
 
 $grey-light:  #B2B2B2;
 $grey-med:    #777777;
@@ -51,6 +51,9 @@ $grey-dark:   #454545;
 // STOP!!! READ THIS:
 // Semantic Color Names
 // http://thesassway.com/beginner/variable-naming
+
+$color-body-bkgd: $white;
+$color-body-text: $black;
 
 // These are nice utility colors
 $color-accent-vlight:  $white;
@@ -68,7 +71,7 @@ $color-notice-danger:		 $red;
 $color-notice-warning:	 $orange;
 
 // Then element-based names are nice too
-$color-link: 		       mix($teal, $blue);
+$color-link: 		       mix($grey-med, $red);
 $color-link-hover: 		 darken($color-link, 20%);
 $color-link-active: 	 darken($color-link, 60%);
 
@@ -130,9 +133,10 @@ $serif-fallback: Georgia, serif;
 
 // Semantic names
 
-$line-height-base: 	1.5;
+$line-height-base:  1.5;
+$line-height-small: 1.2;
 
-$heading-font: 		$serif;
+$heading-font: 		$sans-serif;
 $body-font: 		  $sans-serif;
 
 $font-weight:     300;

@@ -6,6 +6,23 @@ Header
 Home
 - Tagline intro
 - Header photo
+
+
+
+Flexible content blocks - all pages
+  Text
+    Heading
+    Textarea
+  Connected pages
+    Photo / icon
+    Short title - default will be page title
+    Blurb
+  Testimonial/quote
+  Call to action
+
+  Features list
+  Testimonial
+
 - Summary of services
 - Icon and link out to each service
 - Prompt to contact

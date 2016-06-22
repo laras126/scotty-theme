@@ -3,21 +3,29 @@
   {% block tease_content %}
     <div class="tease-inner">
       <div class="tease-thumb">
+        <a href="{{post.link}}">
         {% if post.get_thumbnail %}
-          <a href="{{post.link}}">
-            <img src="{{post.thumbnail.src}}" />
-          </a>
+          <img class="tease-thumb-img" src="{{post.thumbnail.src|resize(500,300)}}" />
         {% else %}
-          <p class="meta">Please upload a post thumbnail.</p>
+          <img class="tease-thumb-img" src="{{site.theme.link}}/assets/img/svg/placeholder.svg" alt="">
         {% endif %}
+        </a>
       </div>
       <div class="tease-info">
-        <div class="tease-header">
+        <header class="tease-header">
+          <p class="date">{{post.date}}</p>
           <h2 class="tease-title"><a href="{{post.link}}">{{post.title}}</a></h2>
-          <span class="tease-date">{{post.date}}</span>
-        </div>
-        <p>{{post.get_preview}}</p>
+        </header>
+        <p>{{post.post_excerpt}} <a href="{{post.link}}">Read more...</a></p>
         {% include 'partials/edit-link.twig' %}
+        <footer class="tease-footer">
+          {% if post.get_terms('category') %}
+            <p class="meta">Filed under</p>
+            {% for c in post.get_terms('category') %}
+              <a class="meta" href="{{c.link}}">{{c.title}}</a>
+            {% endfor %}
+          {% endif %}
+        </footer>
       </div>
     </div>
   {% endblock %}

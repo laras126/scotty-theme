@@ -1,40 +1,51 @@
+.tease-loop-wrap {
+  @include grid($wrap: wrap);
+}
+
 .tease {
   margin-bottom: $size-h3;
   // padding-top: $size-base;
-  border-top: $border-accent;
-  background-color: rgba($color-text-light, 0.8);
   padding: $size-base;
+  @include bp(sm) {
+    @include cell(half);
+  }
 }
 
 .tease-inner {
-  @include bp(sm) {
-    @include grid;
-  }
+  background-color: rgba($color-body-bkgd, 0.8);
 }
 
 .tease-thumb {
-  @include bp(sm) {
-    @include cell(third);
-  }
+  border-bottom: 5px solid $color-link;
 }
 
-.tease-header {
-  @include bp(sm) {
-    @include grid($wrap: wrap);
-    align-items: center;
-  }
+.tease-thumb-img {
+  display: block;
+  width: 100%;
 }
+
+// .tease-header {
+//   @include bp(sm) {
+//     // @include grid($wrap: wrap);
+//     // align-items: center;
+//   }
+// }
 
 .tease-info {
+  // border-top: $border-accent;
+  padding: $size-base;
 }
 
 .tease-title {
   margin-top: 0;
-  font-style: italic;
+  line-height: $line-height-small;
+  // font-style: italic;
   font-size: $size-h3;
 }
 
-.tease-date {
-  @include meta($color-accent-light);
+.date {
+  margin-top: 0;
+  // margin-bottom: 0;
+  @include meta($color-accent-med);
   font-style: italic;
 }
