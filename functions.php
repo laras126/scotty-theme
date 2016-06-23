@@ -114,9 +114,12 @@ add_action( 'wp_enqueue_scripts', 'sd_scripts' );
 
 
 // Show notice on Dev. and Staging
-if (WP_ENV != 'production') {
-	echo '<p class="' . WP_ENV . ' env-notice">' . WP_ENV . '</p>';
+function sd_env_notice() {
+	if (WP_ENV != 'production') {
+		echo '<p class="' . WP_ENV . ' env-notice">' . WP_ENV . '</p>';
+	}
 }
+add_action('wp_head', 'sd_env_notice');
 
 
 
