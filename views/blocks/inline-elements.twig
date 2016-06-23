@@ -5,12 +5,16 @@
   {% for elem in block.elements %}
       {% if elem.acf_fc_layout == 'text' %}
         {{elem.text}}
-      {% elseif elem.acf_fc_layout == 'image' %}
-        {% set img = TimberImage(elem.image) %}
-        <div class="inline-image {{elem.alignment}}">
-          <img src="{{img.src}}" alt="{{img.alt}}">
-        {% if img.caption %}<p class="caption">{{img.caption}}</p>{% endif %}
-        </div>
+      {% else %}
+          <div class="inline-elem {{elem.alignment}}">
+        {% if elem.acf_fc_layout == 'image' %}
+          {% set img = TimberImage(elem.image) %}
+            <img src="{{img.src|resize(600)}}" alt="{{img.alt}}">
+          {% if img.caption %}<p class="caption">{{img.caption}}</p>{% endif %}
+          {% elseif elem.acf_fc_layout == 'embed' %}
+              {{elem.embed_code}}
+        {% endif %}
+          </div>
       {% endif %}
   {% endfor %}
 
