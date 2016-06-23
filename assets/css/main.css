@@ -432,11 +432,21 @@ th {
 .full-image {
   width: 100%; }
 
+.visually-hidden {
+  position: absolute;
+  top: -9999999px;
+  left: -9999999px;
+  opacity: 0; }
+
 .spacer-top {
   margin-top: 1rem; }
 
 .spacer-bot {
   margin-bottom: 1rem; }
+
+.env-notice {
+  color: green;
+  background-color: yellow; }
 
 * {
   box-sizing: border-box; }
@@ -470,6 +480,7 @@ a:link {
 
 a:hover, a:focus {
   color: #573632; }
+
 a:active {
   color: black; }
 
@@ -754,6 +765,7 @@ a.site-logo-link {
 .block.-inline_elements:before, .block.-inline_elements:after {
   content: " ";
   display: table; }
+
 .block.-inline_elements:after {
   clear: both; }
 
@@ -772,5 +784,3 @@ a.site-logo-link {
       width: 60%; }
     .inline-image.-small {
       width: 40%; } }
-
-/*# sourceMappingURL=main.css.map */
