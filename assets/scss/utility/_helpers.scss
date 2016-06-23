@@ -60,8 +60,23 @@
 // Misc
 
 .env-notice {
-  color: green;
-  background-color: yellow;
+  color: #FFF;
+  position: fixed;
+  margin: 0;
+  bottom: 0;
+  left: 0;
+  font-size: $size-h4;
+  @include upperspace;
+  font-weight: $font-weight-strong;
+  padding: $size-xsml $size-sml;
+
+  &.development {
+    background-color: royalblue;
+  }
+
+  &.staging {
+    background-color: indianred;
+  }
 }
 
 

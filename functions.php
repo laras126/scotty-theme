@@ -100,7 +100,7 @@ function sd_scripts() {
 	// Enqueue our stylesheet and JS file with a jQuery dependency.
 	// Note that we aren't using WordPress' default style.css, and instead enqueueing the file of compiled Sass.
 
-	// Use either minified or not depending on environment
+	// Use minified on staging and prod, unminified on dev.
 	if (WP_ENV != 'development') {
 		wp_enqueue_style( 'sd-styles', get_template_directory_uri() . '/assets/css/main.css', 1.0);
 		wp_enqueue_script( 'sd-js', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), '1.0.0', true );
@@ -113,9 +113,10 @@ function sd_scripts() {
 add_action( 'wp_enqueue_scripts', 'sd_scripts' );
 
 
-// Show notice of what environment this is
-echo '<h1 class="env-notice">' . WP_ENV . '</h1>';
-
+// Show notice on Dev. and Staging
+if (WP_ENV != 'production') {
+	echo '<p class="' . WP_ENV . ' env-notice">' . WP_ENV . '</p>';
+}
 
 
 
