@@ -16,7 +16,12 @@
           <p class="date">{{post.date}}</p>
           <h2 class="tease-title"><a href="{{post.link}}">{{post.title}}</a></h2>
         </header>
-        <p>{{post.post_excerpt}} <a href="{{post.link}}">Read more...</a></p>
+        {% if post.post_excerpt %}
+          <p>{{post.post_excerpt}} <a class="link-readmore" href="{{post.link}}">Read more...</a></p>
+        {% endif %}
+
+
+
         {% include 'partials/edit-link.twig' %}
         <footer class="tease-footer">
           {% if post.get_terms('category') %}
