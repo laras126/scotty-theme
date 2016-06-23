@@ -103,10 +103,10 @@ function sd_scripts() {
 	// Use minified on staging and prod, unminified on dev.
 	if (WP_ENV == 'development') {
 		wp_enqueue_style( 'sd-styles', get_template_directory_uri() . '/assets/css/main.css', 1.0);
-		wp_enqueue_script( 'sd-js', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), '1.0.0', true );
+		wp_enqueue_script( 'sd-js', get_template_directory_uri() . '/assets/js/build/scripts.js', array('jquery'), '1.0.0', true );
 	} else {
 		wp_enqueue_style( 'sd-styles', get_template_directory_uri() . '/assets/css/main.min.css', 1.0);
-		wp_enqueue_script( 'sd-js', get_template_directory_uri() . '/assets/js/main.min.js', array('jquery'), '1.0.0', true );
+		wp_enqueue_script( 'sd-js', get_template_directory_uri() . '/assets/js/build/scripts.min.js', array('jquery'), '1.0.0', true );
 	}
 }
 
