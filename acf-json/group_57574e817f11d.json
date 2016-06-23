@@ -1,6 +1,6 @@
 {
     "key": "group_57574e817f11d",
-    "title": "Home Page",
+    "title": "Page Header",
     "fields": [
         {
             "key": "field_57574efa100a5",
@@ -72,9 +72,9 @@
     "location": [
         [
             {
-                "param": "page_type",
+                "param": "post_type",
                 "operator": "==",
-                "value": "front_page"
+                "value": "page"
             }
         ]
     ],
@@ -97,5 +97,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1465342503
+    "modified": 1466699314
 }
