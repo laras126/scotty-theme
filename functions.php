@@ -91,7 +91,7 @@ new StarterSite();
  */
 
 // Enqueue scripts
-function my_scripts() {
+function sd_scripts() {
 
 	// Use jQuery from a CDN
 	wp_deregister_script('jquery');
@@ -99,11 +99,33 @@ function my_scripts() {
 
 	// Enqueue our stylesheet and JS file with a jQuery dependency.
 	// Note that we aren't using WordPress' default style.css, and instead enqueueing the file of compiled Sass.
-	wp_enqueue_style( 'my-styles', get_template_directory_uri() . '/assets/css/main.css', 1.0);
-	wp_enqueue_script( 'my-js', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), '1.0.0', true );
+
+	// Use either minified or not depending on environment
+	if (WP_ENV != 'development') {
+		wp_enqueue_style( 'sd-styles', get_template_directory_uri() . '/assets/css/main.css', 1.0);
+		wp_enqueue_script( 'sd-js', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), '1.0.0', true );
+	} else {
+		wp_enqueue_style( 'sd-styles', get_template_directory_uri() . '/assets/css/main.min.css', 1.0);
+		wp_enqueue_script( 'sd-js', get_template_directory_uri() . '/assets/js/main.min.js', array('jquery'), '1.0.0', true );
+	}
 }
 
-add_action( 'wp_enqueue_scripts', 'my_scripts' );
+add_action( 'wp_enqueue_scripts', 'sd_scripts' );
+
+
+// Show notice of what environment this is
+echo '<h1 class="env-notice">' . WP_ENV . '</h1>';
+
+
+
+
+
+
+
+
+
+
+
 
 
 
