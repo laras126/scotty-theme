@@ -24,25 +24,26 @@ gulp.task('sass', function() {
     .pipe(autoprefix({
         browsers: 'last 5 versions'
     }))
-    // .pipe(gulp.dest('assets/css'))
+    .pipe(gulp.dest('assets/css'))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(cssnano())
+    .pipe(gulp.dest('assets/css'));
 });
 
 gulp.task('js', function() {
   return gulp.src(jsFileList)
     .pipe(concat('scripts.js'))
     .pipe(gulp.dest('assets/js/build'))
-});
-
-gulp.task('min-js', function() {
-  return gulp.src('assets/js/build/scripts.js')
     .pipe(uglify())
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest('assets/js/build'))
+    .pipe(gulp.dest('assets/js/build'));
 });
 
 gulp.task('watch', function() {
   gulp.watch('assets/scss/**/*.scss', ['sass']);
+  gulp.watch('assets/js/**/*.js', ['scripts']);
 });
+
 
 gulp.task('svgs', function () {
   return gulp
