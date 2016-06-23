@@ -17,8 +17,9 @@
   @include clearfix;
 }
 
-.inline-image {
+.inline-elem {
   padding-bottom: $size-xsml;
+  max-width: 50%;
   @include bp(md) {
 
     &.alignleft {
