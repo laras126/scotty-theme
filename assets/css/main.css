@@ -759,7 +759,7 @@ a.site-logo-link {
 .article-title {
   margin-top: 0;
   text-align: center;
-  margin-bottom: 1.8rem; }
+  margin-bottom: 1rem; }
 
 .article-summary {
   font-size: 1.2rem; }
@@ -826,18 +826,19 @@ a.site-logo-link {
 .block.-inline_elements:after {
   clear: both; }
 
-.inline-image {
-  padding-bottom: 0.6rem; }
+.inline-elem {
+  padding-bottom: 0.6rem;
+  max-width: 50%; }
   @media (min-width: 840px) {
-    .inline-image.alignleft {
+    .inline-elem.alignleft {
       margin-left: -10%;
       padding-right: 0.8rem; }
-    .inline-image.alignright {
+    .inline-elem.alignright {
       margin-right: -10%;
       padding-left: 0.8rem; }
-    .inline-image.-large {
+    .inline-elem.-large {
       width: 75%; }
-    .inline-image.-medium {
+    .inline-elem.-medium {
       width: 60%; }
-    .inline-image.-small {
+    .inline-elem.-small {
       width: 40%; } }
