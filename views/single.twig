@@ -1,14 +1,17 @@
 {% extends "base.twig" %}
 
 {% block content %}
+
+  {% include 'utility/svg.twig' with { file: 'rocks-glass', prefix: 'icon' } %}
+
 	<article class="post-type-{{post.post_type}} post-format-{{post.format}}" id="post-{{post.ID}}">
     <header class="article-header contain-sm text-center">
       <p class="date">{{post.date}}</p>
       <h1 class="article-title">{{post.title}}</h1>
       <p class="article-summary">{{post.post_excerpt}}</p>
     </header>
-    <div class="contain-md">
-      <img src="{{post.thumbnail.src|resize(700,400,false)}}" alt="{{<post class="thumbnail title"></post>}}">
+    <div class="contain-lg">
+      <img src="{{post.thumbnail.src|resize(900,400)}}" alt="{{post.thumbnail.title}}">
       {% if post.thumbnail.caption %}
         <p class="caption">{{post.thumbnail.caption}}</p>
       {% endif %}
