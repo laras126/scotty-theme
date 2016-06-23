@@ -101,7 +101,7 @@ function sd_scripts() {
 	// Note that we aren't using WordPress' default style.css, and instead enqueueing the file of compiled Sass.
 
 	// Use minified on staging and prod, unminified on dev.
-	if (WP_ENV != 'development') {
+	if (WP_ENV == 'development') {
 		wp_enqueue_style( 'sd-styles', get_template_directory_uri() . '/assets/css/main.css', 1.0);
 		wp_enqueue_script( 'sd-js', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), '1.0.0', true );
 	} else {
