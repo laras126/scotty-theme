@@ -17,18 +17,18 @@
           <h2 class="tease-title"><a href="{{post.link}}">{{post.title}}</a></h2>
         </header>
         {% if post.post_excerpt %}
-          <p>{{post.post_excerpt}} <a class="link-readmore" href="{{post.link}}">Read more...</a></p>
+          <p>{{post.post_excerpt}}</p>
+          <a class="link-readmore" href="{{post.link}}">Read more...</a>
         {% endif %}
-
-
 
         {% include 'partials/edit-link.twig' %}
         <footer class="tease-footer">
           {% if post.get_terms('category') %}
-            <p class="meta">Filed under</p>
+            <p class="meta">Filed under:
             {% for c in post.get_terms('category') %}
               <a class="meta" href="{{c.link}}">{{c.title}}</a>
             {% endfor %}
+            </p>
           {% endif %}
         </footer>
       </div>
