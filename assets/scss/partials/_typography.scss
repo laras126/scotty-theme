@@ -68,3 +68,11 @@ p {
 small {
 	font-size: $size-sml;
 }
+
+blockquote {
+	font-size: $size-h4;
+	font-style: italic;
+	padding-left: $size-base;
+	border-left: $border-accent;
+	margin: 0;
+}
