@@ -543,6 +543,13 @@ p {
 small {
   font-size: 0.8rem; }
 
+blockquote {
+  font-size: 1.4rem;
+  font-style: italic;
+  padding-left: 1rem;
+  border-left: 1px dotted #777777;
+  margin: 0; }
+
 .btn-default {
   background-color: #454545;
   color: #FFF;
@@ -827,15 +834,19 @@ a.site-logo-link {
   clear: both; }
 
 .inline-elem {
-  padding-bottom: 0.6rem;
-  max-width: 50%; }
+  padding-bottom: 0.6rem; }
+  @media (min-width: 680px) {
+    .inline-elem {
+      max-width: 50%; }
+      .inline-elem.alignleft {
+        padding-right: 0.8rem; }
+      .inline-elem.alignright {
+        padding-left: 0.8rem; } }
   @media (min-width: 840px) {
     .inline-elem.alignleft {
-      margin-left: -10%;
-      padding-right: 0.8rem; }
+      margin-left: -10%; }
     .inline-elem.alignright {
-      margin-right: -10%;
-      padding-left: 0.8rem; }
+      margin-right: -10%; }
     .inline-elem.-large {
       width: 75%; }
     .inline-elem.-medium {
