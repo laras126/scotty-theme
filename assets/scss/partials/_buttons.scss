@@ -6,19 +6,47 @@
 
 @mixin button($background, $text-color: $color-text-light) {
 	background-color: $background;
-	color: $text-color;
+	color: $text-color !important;
 	padding: $size-base $size-h4;
 	text-decoration: none;
+
+  &:hover {
+    background-color: darken($background, 8%);
+  }
+
+  &:active {
+    background-color: darken($background, 15%);
+  }
+
+  .icon {
+    fill: $text-color;
+  }
 }
 
 // A note about naming: instead of .default-btn, I like to have .btn first so that it's more easily scannable. Change it up as you like!
 
 // Default button
 .btn-default {
-	@include button($color-accent-dark); // You'll notice there isn't a $text-color parameter here. That's because we defined a default as $text-light.
+	@include button($color-accent-dark, $color-text-light);
 }
 
 // Info button, maybe for "Read More" or something.
 .btn-info {
-	@include button($color-notice-info, $color-text-dark);
+	@include button($color-notice-info, $color-text-light);
+}
+
+.btn-wrap {
+  text-align: center;
+  display: flex;
+}
+
+.btn-icon,
+.btn-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .icon {
+    padding-left: $size-xsml;
+  }
 }

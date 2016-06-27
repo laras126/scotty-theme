@@ -26,6 +26,11 @@
     </div>
     <section class="article-content">
 			{% include 'partials/content-blocks.twig' %}
+      {% if post.format == 'link' %}
+        <div class="text-center btn-wrap">
+          <a href="{{post.link_url}}" class="btn-info btn-icon"><span>Go to Link</span> {% include 'utility/svg.twig' with { file: 'new-window', prefix: 'icon' } %}</a>
+        </div>
+      {% endif %}
 		</section>
     <footer class="article-footer">
       {% include 'partials/prev-next.twig' %}
