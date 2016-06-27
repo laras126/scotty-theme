@@ -50,3 +50,36 @@ a.nav-trigger {
 	}
 
 }
+
+
+// Previous/Next
+
+.prev-next {
+	@include bp(md) {
+		@include grid;
+	}
+	margin-top: $size-h1;
+	padding-top: $size-h3;
+	border-top: $border-accent;
+	margin-bottom: $size-h1;
+}
+
+.prev,
+.next {
+	font-size: $size-sml;
+	@include bp(md) {
+		@include cell(half);
+	}
+
+	.indicator {
+		@include upperspace;
+		color: $color-accent-dark;
+	}
+
+}
+
+.next {
+	@include bp(md) {
+		text-align: right;
+	}
+}

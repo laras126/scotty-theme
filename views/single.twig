@@ -27,16 +27,8 @@
     <section class="article-content">
 			{% include 'partials/content-blocks.twig' %}
 		</section>
-    <footer class="article-footer contain-sm">
-      {# TODO: prev next nav here #}
-      {# {% if post.previous %}
-        {{post.previous.link}}
-      {% endif %}
-      {% if post.next %}
-        {{post.next.link}}
-      {% endif %} #}
-      {# Social media share #}
-      {# Possibly comments #}
+    <footer class="article-footer">
+      {% include 'partials/prev-next.twig' %}
     </footer>
 	</article>
 {% endblock %}
