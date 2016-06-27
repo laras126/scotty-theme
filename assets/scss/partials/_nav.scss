@@ -108,3 +108,15 @@ a.nav-trigger {
 		}
 	}
 }
+
+a.cat-item-link {
+
+	&.-all {
+		color: $color-accent-dark;
+	}
+
+	&.-current {
+		color: $color-accent-dark;
+		font-weight: $font-weight-strong;
+	}
+}
