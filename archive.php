@@ -26,7 +26,7 @@ if ( is_day() ) {
 } else if ( is_year() ) {
 	$data['title'] = 'Archive: '.get_the_date( 'Y' );
 } else if ( is_tag() ) {
-	$data['title'] = single_tag_title( '', false );
+	$data['title'] = 'Archive: ' . single_tag_title( '', false );
 } else if ( is_category() ) {
 	$data['title'] = single_cat_title( '', false );
 	array_unshift( $templates, 'archive-' . get_query_var( 'cat' ) . '.twig' );
@@ -36,7 +36,7 @@ if ( is_day() ) {
 	$data['term'] = $term;
 	array_unshift($templates, 'taxonomy-'.$term->taxonomy.'.twig', 'taxonomy.twig');
 } else if ( is_post_type_archive() ) {
-	$data['title'] = post_type_archive_title( '', false );
+	$data['title'] = 'Archive: ' . post_type_archive_title( '', false );
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
 
