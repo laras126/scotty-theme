@@ -775,6 +775,13 @@ a.nav-trigger {
     .cat-list li:first-child {
       padding-left: 0; }
 
+a.cat-item-link.-all {
+  color: #454545; }
+
+a.cat-item-link.-current {
+  color: #454545;
+  font-weight: 700; }
+
 .site-header {
   text-align: center;
   background-color: rgba(30, 30, 30, 0.7);
@@ -917,7 +924,8 @@ a.site-logo-link {
       max-width: 50%; } }
 
 .tease-inner {
-  background-color: rgba(255, 255, 255, 0.8); }
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(178, 178, 178, 0.3); }
 
 .tease-thumb {
   border-bottom: 5px solid #975e58;
