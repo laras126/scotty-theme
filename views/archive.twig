@@ -4,12 +4,16 @@
   <header class="contain-sm article-header">
     <h1 class="article-title">{{title}}</h1>
   </header>
+  <p class="meta-upper text-center">Filter by:</p>
   <ul class="cat-list -header">
-  {% for c in cats %}
     <li class="cat-list-item">
-      <a href="{{c.link}}">{{c.name}}</a>
+      <a href="{{posts_page_link}}">All Posts</a>
     </li>
-  {% endfor %}
+    {% for c in cats %}
+      <li class="cat-list-item">
+        <a href="{{c.link}}">{{c.name}}</a>
+      </li>
+    {% endfor %}
   </ul>
 {% endblock %}
 

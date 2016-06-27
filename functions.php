@@ -72,6 +72,9 @@ class StarterSite extends TimberSite {
 		// All Categories
 		$context['cats'] = Timber::get_terms('category');
 
+		// Posts page link
+		$context['posts_page_link'] = get_permalink(get_option('page_for_posts' ));
+
 		return $context;
 	}
 
@@ -150,7 +153,7 @@ add_action( 'admin_menu' , 'oz_remove_normal_excerpt' );
  * @return null
  */
 function oz_add_excerpt_meta_box( $post_type ) {
-	if ( in_array( $post_type, array( 'post', 'page' ) ) ) {
+	if ( in_array( $post_type, array( 'post', 'recipe' ) ) ) {
 		add_meta_box(
 			'oz_postexcerpt',
 			__( 'Excerpt', 'thetab-theme' ),
