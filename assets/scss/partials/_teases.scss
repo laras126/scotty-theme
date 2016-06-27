@@ -33,8 +33,11 @@
 .tease-info {
   // border-top: $border-accent;
   padding: $size-base;
+
   > p {
-    font-size: $size-sml;
+    @include bp(md) {
+      font-size: $size-sml;
+    }
   }
 }
 
