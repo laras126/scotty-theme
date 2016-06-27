@@ -93,8 +93,6 @@ $gutter: $size-base;
   @if $size != false {
       flex: 0 0 map-get($sizes, $size);
       max-width: map-get($sizes, $size); // Fix for Firefox
-  } @else {
-      // flex: 1;
   }
 }
 
@@ -138,7 +136,6 @@ $gutter: $size-base;
 
 
 
-
 // Rotate color schemes
 
 // I like to have a mixin for rotating background and text colors.
@@ -174,6 +171,10 @@ $gutter: $size-base;
   @include meta;
 }
 
+.meta-upper {
+  @include meta;
+  @include upperspace;
+}
 
 // Poop poop clearfix.
 

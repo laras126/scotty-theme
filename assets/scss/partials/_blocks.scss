@@ -19,6 +19,7 @@
 
 .inline-elem {
   padding-bottom: $size-xsml;
+
   @include bp(sm) {
 
     max-width: 50%;
@@ -31,6 +32,7 @@
       padding-left: $size-sml;
     }
   }
+
   @include bp(md) {
 
     &.alignleft {

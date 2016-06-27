@@ -57,10 +57,23 @@ a.site-logo-link {
   }
 }
 
-
 .site-main {
-  background-color: rgba(#FFF, 0.7);
-  @include contain;
+
+  // .single &,
+  // .page &,
+  // body:not(.blog) & {
+    background-color: rgba(#FFF, 0.7);
+    @include contain;
+    // padding: 0;
+  // }
+
+  // .blog &,
+  // .archive & {
+  //   width: 90%;
+  //   margin: 0 auto;
+  //   max-width: 1200px;
+  // }
+
   padding-top: $size-h3;
   padding-bottom: $size-h3;
 
