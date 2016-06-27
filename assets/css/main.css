@@ -567,15 +567,48 @@ blockquote {
 
 .btn-default {
   background-color: #454545;
-  color: #FFF;
+  color: #FFF !important;
   padding: 1rem 1.4rem;
   text-decoration: none; }
+  .btn-default:hover {
+    background-color: #313131; }
+  .btn-default:active {
+    background-color: #1f1f1f; }
+  .btn-default .icon {
+    fill: #FFF; }
 
 .btn-info {
   background-color: #0062d4;
-  color: #1E1E1E;
+  color: #FFF !important;
   padding: 1rem 1.4rem;
   text-decoration: none; }
+  .btn-info:hover {
+    background-color: #004fab; }
+  .btn-info:active {
+    background-color: #003f88; }
+  .btn-info .icon {
+    fill: #FFF; }
+
+.btn-wrap {
+  text-align: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.btn-icon,
+.btn-wrap {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  .btn-icon .icon,
+  .btn-wrap .icon {
+    padding-left: 0.6rem; }
 
 *:focus {
   outline: 1px dotted #aaa; }
@@ -626,8 +659,9 @@ input[type="checkbox"] {
 
 .icon {
   height: 1.8rem;
-  width: 1.8rem;
-  fill: #777777; }
+  width: 1.8rem; }
+  .article-title .icon {
+    fill: #777777; }
 
 .hero-tagline-main {
   font-size: 1.8rem; }
@@ -895,8 +929,9 @@ a.site-logo-link {
 
 .tease-info {
   padding: 1rem; }
-  .tease-info > p {
-    font-size: 0.8rem; }
+  @media (min-width: 840px) {
+    .tease-info > p {
+      font-size: 0.8rem; } }
 
 .tease-title {
   margin-top: 0;
