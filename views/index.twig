@@ -1,14 +1,1 @@
-{% extends "base.twig" %}
-
-{% block content %}
-  <div class="contain-sm">
-    <h1 class="article-title">Articles</h1>
-  </div>
-  <div class="tease-loop-wrap">
-	{% for post in posts %}
-    {# <div class="contain-md"> #}
-  		{% include ['teases/tease-'~post.post_type~'.twig', 'teases/tease.twig'] %}
-    {# </div> #}
-	{% endfor %}
-  </div>
-{% endblock %}
+{% extends "archive.twig" %}

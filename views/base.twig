@@ -29,9 +29,11 @@
 
 		<main role="main" class="site-main">
 			<div class="main-content {{sidebar_class}}">
+				{% block header_content %}{% endblock %}
 				{% block content %}
 					Sorry, no content
 				{% endblock %}
+				{% block footer_content %}{% endblock %}
 			</div>
 			{% if sidebar %}
 				<aside class="main-sidebar">
