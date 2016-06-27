@@ -68,6 +68,10 @@ class StarterSite extends TimberSite {
 
 		// This 'site' context below allows you to access main site information like the site title or description.
 		$context['site'] = $this;
+
+		// All Categories
+		$context['cats'] = Timber::get_terms('category');
+
 		return $context;
 	}
 
@@ -150,7 +154,7 @@ function oz_add_excerpt_meta_box( $post_type ) {
 		add_meta_box(
 			'oz_postexcerpt',
 			__( 'Excerpt', 'thetab-theme' ),
-			'post_excerpt_meta_box',
+			'sd_post_excerpt_meta_box',
 			$post_type,
 			'after_title',
 			'high'
@@ -158,6 +162,13 @@ function oz_add_excerpt_meta_box( $post_type ) {
 	}
 }
 add_action( 'add_meta_boxes', 'oz_add_excerpt_meta_box' );
+
+function sd_post_excerpt_meta_box($post) {
+?>
+<label class="screen-reader-text" for="excerpt"><?php _e('Excerpt') ?></label><textarea rows="1" cols="40" name="excerpt" tabindex="6" id="excerpt"><?php echo $post->post_excerpt; // textarea_escaped ?></textarea>
+<p><?php _e('A sentence summary of this post. It will display at the top of each single post view as well as in loop of posts.'); ?></p>
+<?php
+}
 
 /**
  * You can't actually add meta boxes after the title by default in WP so
