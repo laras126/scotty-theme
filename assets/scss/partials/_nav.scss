@@ -55,7 +55,9 @@ a.nav-trigger {
 // Previous/Next
 
 .prev-next {
-	@include bp(md) {
+	text-align: center;
+	@include bp(sm) {
+		text-align: left;
 		@include grid;
 	}
 	margin-top: $size-h1;
@@ -66,8 +68,10 @@ a.nav-trigger {
 
 .prev,
 .next {
+	margin-bottom: $size-base;
 	font-size: $size-sml;
-	@include bp(md) {
+
+	@include bp(sm) {
 		@include cell(half);
 	}
 
@@ -79,7 +83,28 @@ a.nav-trigger {
 }
 
 .next {
-	@include bp(md) {
+	@include bp(sm) {
+		margin-left: auto;
 		text-align: right;
+	}
+}
+
+
+// Category list nav
+
+.cat-list {
+	list-style-type: none;
+	display: flex;
+	margin: 0;
+	padding: 0;
+	justify-content: center;
+	flex-wrap: wrap;
+
+	li {
+		padding: 0 $size-base $size-base $size-base;
+
+		&:first-child {
+			padding-left: 0;
+		}
 	}
 }
