@@ -27,12 +27,12 @@
                     "sub_fields": [
                         {
                             "key": "field_5758a886a128d",
-                            "label": "Section Heading",
+                            "label": "Section Heading (optional)",
                             "name": "section_heading",
                             "type": "text",
                             "instructions": "A few words for a heading.",
-                            "required": "",
-                            "conditional_logic": "",
+                            "required": 0,
+                            "conditional_logic": 0,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -540,5 +540,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1466792980
+    "modified": 1467046635
 }
