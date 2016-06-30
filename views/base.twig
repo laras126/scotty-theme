@@ -18,8 +18,10 @@
 						</h1>
 						<p class="site-description">{{site.description}}</p>
 						{% include 'partials/nav.twig' %}
-
 					</div>
+					<ul class="header-widgets">
+						{{header_widgets}}
+					</ul>
 				{% endblock %}
 			</div>
 		</header>
@@ -42,6 +44,9 @@
 		<footer class="site-footer">
 			{% block footer %}
 				<div class="wrapper">
+					<ul class="footer-widgets">
+						{{footer_widgets}}
+					</ul>
 					{% include 'footer.twig' %}
 				</div>
 			{% endblock %}

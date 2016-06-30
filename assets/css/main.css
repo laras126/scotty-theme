@@ -714,6 +714,21 @@ a.nav-trigger {
     a.nav-trigger {
       display: none; } }
 
+.nav-drop {
+  max-height: 0;
+  opacity: 0; }
+  @media (min-width: 680px) {
+    .nav-drop {
+      position: absolute; } }
+
+.menu-item-has-children > a {
+  color: green; }
+
+.nav-item:hover > .nav-drop,
+.nav-item:focus > .nav-drop {
+  max-height: none;
+  opacity: 1; }
+
 .prev-next {
   text-align: center;
   margin-top: 2.6rem;
@@ -884,6 +899,17 @@ a.site-logo-link {
   .site-footer p {
     color: #FFF;
     font-size: 0.8rem; }
+
+.footer-widgets {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around; }
 
 .article-title {
   text-align: center;

@@ -10,7 +10,8 @@ var gulp = require('gulp'),
     cssnano = require('gulp-cssnano'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-    rename = require('gulp-rename');
+    rename = require('gulp-rename'),
+    browserSync = require('browser-sync').create();
 
 // Put JS files into array
 var jsFileList = [
@@ -65,4 +66,8 @@ gulp.task('svgs', function () {
     .pipe(gulp.dest('views/utility'));
 });
 
-// sass --watch input:output
+gulp.task('browser-sync', function() {
+    browserSync.init({
+        proxy: 'scotty.local'
+    });
+});
