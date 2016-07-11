@@ -1,11 +1,13 @@
+.tease {
+  position: relative;
+}
 
 .tease-loop-wrap {
   @include grid($wrap: wrap);
 }
 
-.tease {
+.tease-post {
   margin-bottom: $size-h3;
-  // padding-top: $size-base;
   padding: $size-base;
   @include bp(sm) {
     @include cell(half);
@@ -14,6 +16,35 @@
   // @include bp(lg) {
   //   @include cell(third);
   // }
+}
+
+.tease-recipe {
+  background-color: $color-accent-vlight;
+  padding: $size-base;
+}
+
+.recipe-section {
+
+  &.-notes p {
+    @include meta;
+  }
+
+  &-title {
+
+    .-notes & {
+      margin-bottom: 0;
+      font-size: $size-sml;
+      border-top: $border-accent;
+      padding-top: $size-sml;
+    }
+
+    font-size: $size-base;
+    @include upperspace;
+  }
+}
+
+.recipe-credit {
+  margin-top: 0;
 }
 
 .tease-inner {
@@ -50,9 +81,10 @@
 }
 
 .tease-type {
+  margin: 0;
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   @include upperspace;
   background-color: rgba($color-accent-dark, 0.7);
   color: $color-text-light;
