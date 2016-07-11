@@ -3,29 +3,29 @@
     "title": "Recipes",
     "fields": [
         {
-            "key": "field_5777e618b11de",
-            "label": "Introduction and Credits",
-            "name": "intro",
+            "key": "field_5783c85a598f7",
+            "label": "Author Credit",
+            "name": "credit",
             "type": "wysiwyg",
-            "instructions": "A quick introduction to this recipe. Mention if it is from a book or another person, and give them credit here. Be sure to link to books or names where possible.",
+            "instructions": "If this is <em>not<\/em> an original recipe, name the author and\/or book here. Link to both the book and the author. Example: Dave Arnold (linked to his Twitter) in Liquid Intelligence (linked to Amazon). ",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "wysiwg-v-short",
                 "id": ""
             },
             "default_value": "",
             "tabs": "all",
-            "toolbar": "basic",
+            "toolbar": "links_only",
             "media_upload": 0
         },
         {
             "key": "field_5771583918f4b",
-            "label": "Ingredients - Text",
+            "label": "Ingredients",
             "name": "ingredients_text",
             "type": "wysiwyg",
-            "instructions": "List the ingredients in this recipe.",
+            "instructions": "List the ingredients in this recipe using a \"Numbered List\". Link to any recommended brands or related posts e.g. if the recipe includes simple syrup, link to your simple syrup recipe.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -37,55 +37,13 @@
             "tabs": "all",
             "toolbar": "basic",
             "media_upload": 0
-        },
-        {
-            "key": "field_5777f1c65413b",
-            "label": "Ingredients",
-            "name": "ingredients",
-            "type": "repeater",
-            "instructions": "List the ingredients in this recipe.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "",
-            "min": "",
-            "max": "",
-            "layout": "table",
-            "button_label": "Add Item",
-            "sub_fields": [
-                {
-                    "key": "field_5777f1e05413c",
-                    "label": "Items",
-                    "name": "item",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
-                }
-            ]
         },
         {
             "key": "field_577158b318f4d",
             "label": "Directions",
             "name": "directions",
             "type": "wysiwyg",
-            "instructions": "The directions for this recipe. If there is a clear 1-2-3 progression, use the \"ordered list\" format available in the toolbar. ",
+            "instructions": "The directions for this recipe.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -96,7 +54,25 @@
             "default_value": "",
             "tabs": "all",
             "toolbar": "basic",
-            "media_upload": 1
+            "media_upload": 0
+        },
+        {
+            "key": "field_5783d8530a7bf",
+            "label": "Additional Notes",
+            "name": "notes",
+            "type": "wysiwyg",
+            "instructions": "These notes will display as smaller text below the recipe instructions. You can expand on asterisks here.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0
         }
     ],
     "location": [
@@ -113,8 +89,18 @@
     "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content",
+        "excerpt",
+        "custom_fields",
+        "discussion",
+        "comments",
+        "author",
+        "format",
+        "page_attributes",
+        "send-trackbacks"
+    ],
     "active": 1,
     "description": "",
-    "modified": 1467478519
+    "modified": 1468259266
 }
