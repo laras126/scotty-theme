@@ -1,0 +1,14 @@
+<div class="recipe-section -ingredients">
+  <h5 class="recipe-section-title">Ingredients</h5>
+  {{post.ingredients_text|wpautop}}
+</div>
+<div class="recipe-section -directions">
+  <h5 class="recipe-section-title">Directions</h5>
+  {{post.directions|wpautop}}
+</div>
+{% if post.notes %}
+  <div class="recipe-section -notes">
+    <h5 class="recipe-section-title meta-upper">Notes</h5>
+    {{post.notes|wpautop}}
+  </div>
+{% endif %}

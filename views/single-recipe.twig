@@ -3,30 +3,29 @@
 {% block content %}
 
 	<article class="post-type-{{post.post_type}} post-format-{{post.format}}" id="post-{{post.ID}}">
-    <header class="article-header contain-sm text-center">
-      <p class="date">{{post.post_type|capitalize}}</p>
-      <h1 class="article-title">{{post.title}}</h1>
-      {% if post.get_terms('category') %}
-        <p class="meta">Category:
-        {% for c in post.get_terms('category') %}<a href="{{c.link}}">{{c.name}}</a>{{loop.last ? '' : ', '}}
-      {% endfor %}
-      </p>
-      {% endif %}
-      <p class="article-summary">{{post.post_excerpt}}</p>
+    <header class="article-header grid">
+      <div class="cell-third">
+        <img src="{{post.thumbnail.src|resize(400,400)}}" alt="{{post.thumbnail.title}}">
+        {% if post.thumbnail.caption %}
+          <p class="caption">{{post.thumbnail.caption}}</p>
+        {% endif %}
+      </div>
+      <div class="cell">
+        <p class="date">{{post.post_type|capitalize}}</p>
+        <h1 class="article-title">{{post.title}}</h1>
+        {% if post.get_terms('category') %}
+          <p class="meta">Category:
+          {% for c in post.get_terms('category') %}<a href="{{c.link}}">{{c.name}}</a>{{loop.last ? '' : ', '}}{% endfor %}
+        </p>
+        {% endif %}
+        {% if post.credit %}
+          <p class="meta">{{post.credit}}</p>
+        {% endif %}
+        <p class="article-summary">{{post.post_excerpt}}</p>
+      </div>
     </header>
-    <div class="contain-lg">
-      <img src="{{post.thumbnail.src|resize(900,400)}}" alt="{{post.thumbnail.title}}">
-      {% if post.thumbnail.caption %}
-        <p class="caption">{{post.thumbnail.caption}}</p>
-      {% endif %}
-    </div>
-    <section class="article-content">
-			{% include 'partials/content-blocks.twig' %}
-      {% if post.format == 'link' %}
-        <div class="text-center btn-wrap">
-          <a target="blank" href="{{post.link_url}}" class="btn-info btn-icon"><span>Go to Link</span> {% include 'utility/svg.twig' with { file: 'new-window', prefix: 'icon' } %}</a>
-        </div>
-      {% endif %}
+    <section class="article-content contain-sm">
+			{% include 'partials/recipe-content.twig' %}
 		</section>
     <footer class="article-footer">
       {% include 'partials/prev-next.twig' %}
