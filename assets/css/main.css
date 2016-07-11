@@ -860,7 +860,7 @@ a.site-logo-link {
               order: 2; } }
 
 .site-main {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.8);
   max-width: 980px;
   width: 95%;
   margin: 0 auto;
@@ -886,7 +886,6 @@ a.site-logo-link {
     font-size: 0.8rem; }
 
 .article-title {
-  text-align: center;
   margin-bottom: 1rem;
   font-size: 1.8rem;
   line-height: 1.1; }
@@ -899,6 +898,9 @@ a.site-logo-link {
 
 .article-summary {
   font-size: 1.2rem; }
+
+.tease {
+  position: relative; }
 
 .tease-loop-wrap {
   display: -webkit-flex;
@@ -913,15 +915,36 @@ a.site-logo-link {
     padding-left: 0.5rem;
     padding-right: 0.5rem; }
 
-.tease {
+.tease-post {
   margin-bottom: 1.8rem;
   padding: 1rem; }
   @media (min-width: 680px) {
-    .tease {
+    .tease-post {
       -webkit-flex: 0 0 50%;
           -ms-flex: 0 0 50%;
               flex: 0 0 50%;
       max-width: 50%; } }
+
+.tease-recipe {
+  background-color: #FFF;
+  padding: 1rem; }
+
+.recipe-section.-notes p {
+  color: #777777;
+  font-size: 0.8rem; }
+
+.recipe-section-title {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase; }
+  .-notes .recipe-section-title {
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    border-top: 1px dotted #777777;
+    padding-top: 0.8rem; }
+
+.recipe-credit {
+  margin-top: 0; }
 
 .tease-inner {
   background-color: rgba(255, 255, 255, 0.8);
@@ -947,9 +970,10 @@ a.site-logo-link {
   font-size: 1.4rem; }
 
 .tease-type {
+  margin: 0;
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   letter-spacing: 1px;
   text-transform: uppercase;
   background-color: rgba(69, 69, 69, 0.7);
