@@ -4,12 +4,11 @@
 
   {% for id in block.items %}
     {% set item = TimberPost(id) %}
-    <img src="{{item.thumbnail.src('thumbnail')}}" srcset="
-      {{item.thumbnail.src('medium')}} 800w,
-      {{item.thumbnail.src('large')}} 1024w"
-      alt="Thumbnail">
-    <h4>{{item.title}}</h4>
+    <h4>{{item.title}}{% include 'partials/edit-link.twig' with { post : item } %}</h4>
     <p>{{item.excerpt}}</p>
+    {% if item.post_type == 'recipe' %}
+      {% include 'teases/tease-recipe-short.twig' with { post: item } %}
+    {% endif %}
   {% endfor %}
 
 {% endblock %}
