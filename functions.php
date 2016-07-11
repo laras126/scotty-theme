@@ -169,7 +169,7 @@ add_action( 'add_meta_boxes', 'oz_add_excerpt_meta_box' );
 function sd_post_excerpt_meta_box($post) {
 ?>
 <label class="screen-reader-text" for="excerpt"><?php _e('Excerpt') ?></label><textarea rows="1" cols="40" name="excerpt" tabindex="6" id="excerpt"><?php echo $post->post_excerpt; // textarea_escaped ?></textarea>
-<p><?php _e('A sentence summary of this post. It will display at the top of each single post view as well as in loop of posts.'); ?></p>
+<p><?php _e('A sentence or two summary of this post.'); ?></p>
 <?php
 }
 
@@ -190,3 +190,25 @@ function oz_run_after_title_meta_boxes() {
 add_action( 'edit_form_after_title', 'oz_run_after_title_meta_boxes' );
 
 
+// ACF Functions
+
+/*
+		Add a 'Links Only' toolbar style for the following fields:
+		- Text/Image Block: text_caption
+		- Site-wide Settings: site_callout_text, site_footer_credits
+
+		Credit: http://www.advancedcustomfields.com/resources/customize-the-wysiwyg-toolbars/
+	*/
+
+	function sd_acf_wysiwyg_toolbar( $toolbars ) {
+
+		$toolbars['Links Only'] = array();
+		$toolbars['Text Based'] = array();
+
+		// Only one row of buttons
+		$toolbars['Links Only'][1] = array('link', 'unlink' );
+		$toolbars['Text Based'][1] = array('formatselect', 'bold', 'italic', 'link', 'unlink', 'bullist', 'numlist' );
+
+		return $toolbars;
+	}
+	add_filter( 'acf/fields/wysiwyg/toolbars' , 'sd_acf_wysiwyg_toolbar'  );
