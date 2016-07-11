@@ -1,0 +1,16 @@
+
+/* Advanced Custom Fields */
+
+.wysiwg-short iframe {
+  max-height: 100px !important;
+  min-height: 100px !important;
+}
+
+.wysiwg-v-short iframe {
+  max-height: 50px !important;
+  min-height: 50px !important;
+}
+
+.code_field textarea {
+  font-family: monospace;
+}

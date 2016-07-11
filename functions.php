@@ -129,29 +129,27 @@ function sd_env_notice() {
 add_action('wp_head', 'sd_env_notice');
 
 
+// Customize the editor style
+// It's just the Bootstrap typography, but I like it. Got the idea from Roots.io.
+
+function twc_editor_styles() {
+  add_editor_style( 'assets/css/editor-style.css' );
+}
+add_action( 'after_setup_theme', 'twc_editor_styles' );
+
 
 
 
 // Move excerpt box top top of post editor
 // https://wpartisan.me/tutorials/wordpress-how-to-move-the-excerpt-meta-box-above-the-editor
 
-/**
- * Removes the regular excerpt box. We're not getting rid
- * of it, we're just moving it above the wysiwyg editor
- *
- * @return null
- */
+// Removes the regular excerpt box. We're not getting rid of it, we're just moving it above the wysiwyg editor
 function oz_remove_normal_excerpt() {
 	remove_meta_box( 'postexcerpt' , 'post' , 'normal' );
 }
 add_action( 'admin_menu' , 'oz_remove_normal_excerpt' );
 
-/**
- * Add the excerpt meta box back in with a custom screen location
- *
- * @param  string $post_type
- * @return null
- */
+// Add the excerpt meta box back in with a custom screen location
 function oz_add_excerpt_meta_box( $post_type ) {
 	if ( in_array( $post_type, array( 'post', 'recipe' ) ) ) {
 		add_meta_box(
@@ -173,15 +171,7 @@ function sd_post_excerpt_meta_box($post) {
 <?php
 }
 
-/**
- * You can't actually add meta boxes after the title by default in WP so
- * we're being cheeky. We've registered our own meta box position
- * `after_title` onto which we've regiestered our new meta boxes and
- * are now calling them in the `edit_form_after_title` hook which is run
- * after the post tile box is displayed.
- *
- * @return null
- */
+// You can't actually add meta boxes after the title by default in WP so we're being cheeky. We've registered our own meta box position `after_title` onto which we've regiestered our new meta boxes and are now calling them in the `edit_form_after_title` hook which is run after the post tile box is displayed.
 function oz_run_after_title_meta_boxes() {
 	global $post, $wp_meta_boxes;
 	# Output the `below_title` meta boxes:
@@ -190,25 +180,37 @@ function oz_run_after_title_meta_boxes() {
 add_action( 'edit_form_after_title', 'oz_run_after_title_meta_boxes' );
 
 
+
+
 // ACF Functions
 
 /*
-		Add a 'Links Only' toolbar style for the following fields:
-		- Text/Image Block: text_caption
-		- Site-wide Settings: site_callout_text, site_footer_credits
+	Add a 'Links Only' toolbar style for the following fields:
+	- Text/Image Block: text_caption
+	- Site-wide Settings: site_callout_text, site_footer_credits
 
-		Credit: http://www.advancedcustomfields.com/resources/customize-the-wysiwyg-toolbars/
-	*/
+	Credit: http://www.advancedcustomfields.com/resources/customize-the-wysiwyg-toolbars/
+*/
 
-	function sd_acf_wysiwyg_toolbar( $toolbars ) {
+function sd_acf_wysiwyg_toolbar( $toolbars ) {
 
-		$toolbars['Links Only'] = array();
-		$toolbars['Text Based'] = array();
+	$toolbars['Links Only'] = array();
+	$toolbars['Text Based'] = array();
 
-		// Only one row of buttons
-		$toolbars['Links Only'][1] = array('link', 'unlink' );
-		$toolbars['Text Based'][1] = array('formatselect', 'bold', 'italic', 'link', 'unlink', 'bullist', 'numlist' );
+	// Only one row of buttons
+	$toolbars['Links Only'][1] = array('link', 'unlink' );
+	$toolbars['Text Based'][1] = array('formatselect', 'bold', 'italic', 'link', 'unlink', 'bullist', 'numlist' );
 
-		return $toolbars;
-	}
-	add_filter( 'acf/fields/wysiwyg/toolbars' , 'sd_acf_wysiwyg_toolbar'  );
+	return $toolbars;
+}
+add_filter( 'acf/fields/wysiwyg/toolbars' , 'sd_acf_wysiwyg_toolbar'  );
+
+// Add stylesheet with custom ACF styles
+function sd_acf_admin_head() {
+	?>
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/acf.css">
+	<?php
+}
+add_action('acf/input/admin_head', 'sd_acf_admin_head');
+
+
