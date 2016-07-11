@@ -2,10 +2,16 @@
 
 {% block block_content %}
 
-  {% set img = TimberImage(block.image) %}
-
   <figure class="block-figure -{{block.size}}">
-    <img src="{{img.src}}" class="full-image" alt="">
+
+  {#
+    900 desktop
+    600 tab
+    500 mobile
+  #}
+
+    {% include 'partials/srcset.twig' with { id: block.image, class: 'full-image' } %}
+
     {% if img.caption %}
       <figcaption>
         <p class="caption">{{img.caption}}</p>
