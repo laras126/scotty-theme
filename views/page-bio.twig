@@ -1,0 +1,35 @@
+{% extends "base.twig" %}
+
+{% block header_content %}
+	<h1>BIOOOOOOOOOO</h1>
+	<header class="article-header">
+		{% set img = TimberImage(post.hero_image) %}
+		<img class="hero-img" src="{{img.src|resize(1200,600)}}" alt="">
+		<div class="contain-sm">
+			<h1 class="article-title">{{post.title}}</h1>
+			<p class="article-tagline">{{post.main_tagline}}</p>
+			<p class="article-tagline">{{post.intro_blurb}}</p>
+		</div>
+	</header>
+{% endblock %}
+
+{% block content %}
+
+	{% for t in post.get_field('team_members') %}
+		<h1>{{t.name}}</h1>
+		<p>{{t.bio}}</p>
+		{% include 'partials/srcset.twig' with { id: t.headshot } %}
+	{% endfor %}
+
+
+	<div class="content-wrapper">
+		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+
+			<section class="article-content">
+				<div class="article-body">
+					{% include 'partials/content-blocks.twig'	%}
+				</div>
+			</section>
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}
