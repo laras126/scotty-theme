@@ -3,7 +3,43 @@
     "title": "Recipes",
     "fields": [
         {
+            "key": "field_5777e618b11de",
+            "label": "Introduction and Credits",
+            "name": "intro",
+            "type": "wysiwyg",
+            "instructions": "A quick introduction to this recipe. Mention if it is from a book or another person, and give them credit here. Be sure to link to books or names where possible.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0
+        },
+        {
             "key": "field_5771583918f4b",
+            "label": "Ingredients - Text",
+            "name": "ingredients_text",
+            "type": "wysiwyg",
+            "instructions": "List the ingredients in this recipe.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0
+        },
+        {
+            "key": "field_5777f1c65413b",
             "label": "Ingredients",
             "name": "ingredients",
             "type": "repeater",
@@ -18,17 +54,17 @@
             "collapsed": "",
             "min": "",
             "max": "",
-            "layout": "block",
-            "button_label": "Add Row",
+            "layout": "table",
+            "button_label": "Add Item",
             "sub_fields": [
                 {
-                    "key": "field_577158a218f4c",
-                    "label": "Ingredient",
-                    "name": "ingredient",
+                    "key": "field_5777f1e05413c",
+                    "label": "Items",
+                    "name": "item",
                     "type": "text",
                     "instructions": "",
-                    "required": "",
-                    "conditional_logic": "",
+                    "required": 0,
+                    "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -48,8 +84,8 @@
             "key": "field_577158b318f4d",
             "label": "Directions",
             "name": "directions",
-            "type": "repeater",
-            "instructions": "List the directions in order of implementation.",
+            "type": "wysiwyg",
+            "instructions": "The directions for this recipe. If there is a clear 1-2-3 progression, use the \"ordered list\" format available in the toolbar. ",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -57,52 +93,28 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
-            "min": "",
-            "max": "",
-            "layout": "block",
-            "button_label": "Add Row",
-            "sub_fields": [
-                {
-                    "key": "field_577158b318f4e",
-                    "label": "Direction",
-                    "name": "direction",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
-                }
-            ]
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 1
         }
     ],
     "location": [
         [
             {
-                "param": "post_category",
+                "param": "post_type",
                 "operator": "==",
-                "value": "category:recipe"
+                "value": "recipe"
             }
         ]
     ],
     "menu_order": 0,
     "position": "normal",
-    "style": "default",
+    "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1467046202
+    "modified": 1467478519
 }

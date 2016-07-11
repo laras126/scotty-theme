@@ -437,7 +437,8 @@
                             },
                             "post_type": [
                                 "page",
-                                "post"
+                                "post",
+                                "recipe"
                             ],
                             "taxonomy": [],
                             "filters": [
@@ -540,5 +541,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1467046635
+    "modified": 1467476646
 }
