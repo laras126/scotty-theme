@@ -1,4 +1,3 @@
 {% if post.can_edit %}
-  <br>
-  {{function('edit_post_link', 'Edit Post', '<span class="edit-link">', '</span>', post.ID)}}
+  <em>{{function('edit_post_link', 'Edit '~post.post_type|capitalize, '<span class="edit-link">', '</span>', post.ID)}}</em>
 {% endif %}
