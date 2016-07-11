@@ -8,7 +8,7 @@
   {% elseif block.acf_fc_layout == 'text' %}
     {% include 'blocks/text.twig' with { contain : 'contain-sm' } %}
   {% elseif block.acf_fc_layout == 'connected_items' %}
-    {% include 'blocks/connected-items.twig' %}
+    {% include 'blocks/connected-items.twig' with { contain : 'contain-sm' } %}
   {% elseif block.acf_fc_layout == 'inline_elements' %}
     {% include 'blocks/inline-elements.twig' with { contain : 'contain-sm' } %}
   {% elseif block.acf_fc_layout == 'image' %}
