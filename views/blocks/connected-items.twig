@@ -4,10 +4,12 @@
 
   {% for id in block.items %}
     {% set item = TimberPost(id) %}
-    <h4>{{item.title}}{% include 'partials/edit-link.twig' with { post : item } %}</h4>
-    <p>{{item.excerpt}}</p>
-    {% if item.post_type == 'recipe' %}
-      {% include 'teases/tease-recipe-short.twig' with { post: item } %}
+
+    {% if post.post_type != 'recipe' %}
+      <p>{{item.excerpt}}</p>
+      {% if item.post_type == 'recipe' %}
+        {% include 'teases/tease-' ~ item.post_type ~ '.twig' with { post: item } %}
+      {% endif %}
     {% endif %}
   {% endfor %}
 
