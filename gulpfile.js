@@ -39,6 +39,15 @@ gulp.task('js', function() {
     .pipe(gulp.dest('assets/js/build'));
 });
 
+gulp.task('js-head', function() {
+  return gulp.src('assets/js/vendor-head/*.js')
+    .pipe(concat('scripts-head.js'))
+    .pipe(gulp.dest('assets/js/build'))
+    .pipe(uglify())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest('assets/js/build'));
+});
+
 gulp.task('watch', function() {
   gulp.watch('assets/scss/**/*.scss', ['sass']);
   gulp.watch('assets/js/**/*.js', ['scripts']);
