@@ -1,0 +1,20 @@
+{% extends 'teases/tease.twig' %}
+
+{% block tease_content %}
+
+  <p class="meta-upper tease-type">{% if item.get_terms('recipe_type') %}{% for t in item.get_terms('recipe_type') %}{{t.name}}{{loop.last ? '' : ' / '}}{% endfor %}{% endif %}</p>
+  <h4 class="tease-recipe-title">{{item.title}}{% include 'partials/edit-link.twig' with { post : item } %}</h4>
+  {% if post.credit %}
+    <p class="tease-credit meta">{{post.credit}}</p>
+  {% endif %}
+  <div class="recipe-section -ingredients">
+    <h5 class="recipe-section-title">Ingredients</h5>
+    {{post.ingredients_text|wpautop}}
+  </div>
+  <div class="recipe-section -directions">
+    <h5 class="recipe-section-title">Directions</h5>
+    {{post.directions|wpautop}}
+    <a class="link-readmore" href="{{post.link}}">Recipe Page</a>
+  </div>
+
+{% endblock %}
