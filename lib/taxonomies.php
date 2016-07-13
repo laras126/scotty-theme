@@ -39,4 +39,4 @@ $args = array(
   'show_in_nav_menus'          => true,
   'show_tagcloud'              => true,
 );
-// register_taxonomy( 'recipe_type', array( 'recipe' ), $args );
+register_taxonomy( 'recipe_type', array( 'recipe' ), $args );
