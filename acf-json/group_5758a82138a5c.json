@@ -423,6 +423,45 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_5784213a89fd2",
+                            "label": "Section Heading (optional)",
+                            "name": "section_heading",
+                            "type": "text",
+                            "instructions": "A few words for a heading.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": "",
+                            "readonly": 0,
+                            "disabled": 0
+                        },
+                        {
+                            "key": "field_5784213d89fd3",
+                            "label": "Section Text",
+                            "name": "section_text",
+                            "type": "wysiwyg",
+                            "instructions": "A few sentences introducing the connected items. Optional.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "basic",
+                            "media_upload": 0
+                        },
+                        {
                             "key": "field_5758af57a4744",
                             "label": "Connected Items",
                             "name": "items",
@@ -541,5 +580,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1467476646
+    "modified": 1468277106
 }
