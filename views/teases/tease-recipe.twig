@@ -1,10 +1,1 @@
 {% extends 'teases/tease.twig' %}
-
-{% block tease_content %}
-  <p class="meta-upper tease-type">{{post.post_type}}</p>
-  <h4 class="tease-recipe-title">{{item.title}}{% include 'partials/edit-link.twig' with { post : item } %}</h4>
-  {% if post.credit %}
-    <p class="recipe-credit meta">{{post.credit}}</p>
-  {% endif %}
-  {% include 'partials/recipe-content.twig' %}
-{% endblock %}
