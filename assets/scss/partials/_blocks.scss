@@ -7,8 +7,6 @@
 }
 
 
-
-
 // ----
 // Inline Elements Block
 // ----
@@ -57,3 +55,15 @@
   }
 }
 
+.block.-testimonial blockquote {
+  border-top: $border-accent;
+  border-bottom: $border-accent;
+
+  padding: $size-base;
+  padding-right: $size-base;
+
+  margin-top: $size-base;
+  margin-bottom: $size-base;
+  margin-left: -$size-base;
+  margin-right: -$size-base;
+}
