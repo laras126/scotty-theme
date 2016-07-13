@@ -7,23 +7,28 @@
   {% endfor %}
  #}
 	<article class="post-type-{{post.post_type}} post-format-{{post.format}}" id="post-{{post.ID}}">
-    <header class="article-header contain-sm text-center">
-      <p class="date">{{post.date}}</p>
-      <h1 class="article-title">{{post.title}}</h1>
-      {% if post.get_terms('category') %}
-        <p class="meta">Category:
-        {% for c in post.get_terms('category') %}<a href="{{c.link}}">{{c.name}}</a>{{loop.last ? '' : ', '}}
-      {% endfor %}
-      </p>
-      {% endif %}
-      <p class="article-summary">{{post.post_excerpt}}</p>
+    <header class="article-header text-center">
+      {{breadcrumbs}}
+      <div class="contain-sm">
+        <p class="date">{{post.date}}</p>
+        <h1 class="article-title">{{post.title}}</h1>
+        {% if post.get_terms('category') %}
+          <p class="meta">Category:
+          {% for c in post.get_terms('category') %}<a href="{{c.link}}">{{c.name}}</a>{{loop.last ? '' : ', '}}
+        {% endfor %}
+        </p>
+        {% endif %}
+        <p class="article-summary">{{post.post_excerpt}}</p>
+      </div>
+      <div class="contain-lg">
+        <img src="{{post.thumbnail.src|resize(900,400)}}" alt="{{post.thumbnail.title}}">
+        {% if post.thumbnail.caption %}
+          <p class="caption">{{post.thumbnail.caption}}</p>
+        {% endif %}
+      </div>
     </header>
-    <div class="contain-lg">
-      <img src="{{post.thumbnail.src|resize(900,400)}}" alt="{{post.thumbnail.title}}">
-      {% if post.thumbnail.caption %}
-        <p class="caption">{{post.thumbnail.caption}}</p>
-      {% endif %}
-    </div>
+    {# <div class="contain-lg"> #}
+    {# </div> #}
     <section class="article-content">
       {% include 'partials/content-blocks.twig' %}
       {% if post.format == 'link' %}
