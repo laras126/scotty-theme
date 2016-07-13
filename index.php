@@ -21,5 +21,5 @@ $context = Timber::get_context();
 
 // We can access the loop of WordPress posts with the 'posts' variable.
 $context['posts'] = Timber::get_posts();
-$context['title'] = 'Explore';
+$context['title'] = 'Articles';
 Timber::render( 'index.twig', $context );
