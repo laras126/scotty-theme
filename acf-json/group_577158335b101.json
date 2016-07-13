@@ -3,29 +3,33 @@
     "title": "Recipes",
     "fields": [
         {
-            "key": "field_5783c85a598f7",
-            "label": "Author Credit",
-            "name": "credit",
-            "type": "wysiwyg",
-            "instructions": "If this is <em>not<\/em> an original recipe, name the author and\/or book here. Link to both the book and the author. Example: Dave Arnold (linked to his Twitter) in Liquid Intelligence (linked to Amazon). ",
+            "key": "field_57868f289670a",
+            "label": "Connected Book",
+            "name": "connected_book",
+            "type": "post_object",
+            "instructions": "If this recipe is from a book, connect it here. A blurb about the book will display.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "wysiwg-v-short",
+                "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "links_only",
-            "media_upload": 0
+            "post_type": [
+                "book"
+            ],
+            "taxonomy": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "id",
+            "ui": 1
         },
         {
             "key": "field_5771583918f4b",
             "label": "Ingredients",
             "name": "ingredients_text",
             "type": "wysiwyg",
-            "instructions": "List the ingredients in this recipe using a \"Numbered List\". Link to any recommended brands or related posts e.g. if the recipe includes simple syrup, link to your simple syrup recipe.",
+            "instructions": "List the ingredients in this recipe using a \"Bulleted List\". Link to any recommended brands or related posts e.g. if the recipe includes simple syrup, link to your simple syrup recipe.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -102,5 +106,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1468259266
+    "modified": 1468436355
 }
