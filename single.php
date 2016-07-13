@@ -15,6 +15,10 @@ $context['post'] = $post;
 $context['comment_form'] = TimberHelper::get_comment_form();
 $context['sidebar_class'] = '-has_sidebar';
 
+if ( function_exists( 'yoast_breadcrumb' ) ) {
+    $context['breadcrumbs'] = yoast_breadcrumb('<nav id="breadcrumbs" class="main-breadcrumbs">','</nav>', false );
+}
+
 if ( post_password_required( $post->ID ) ) {
 	Timber::render( 'single-password.twig', $context );
 } else {
