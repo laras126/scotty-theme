@@ -10,7 +10,9 @@ var gulp = require('gulp'),
     cssnano = require('gulp-cssnano'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-    rename = require('gulp-rename');
+    rename = require('gulp-rename'),
+    browserSync = require('browser-sync').create(),
+    livereload = require('gulp-livereload');
 
 // Put JS files into array
 var jsFileList = [
@@ -27,7 +29,8 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('assets/css'))
     .pipe(rename({suffix: '.min'}))
     .pipe(cssnano())
-    .pipe(gulp.dest('assets/css'));
+    .pipe(gulp.dest('assets/css'))
+    .pipe(livereload());
 });
 
 gulp.task('js', function() {
@@ -47,12 +50,6 @@ gulp.task('js-head', function() {
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('assets/js/build'));
 });
-
-gulp.task('watch', function() {
-  gulp.watch('assets/scss/**/*.scss', ['sass']);
-  gulp.watch('assets/js/**/*.js', ['scripts']);
-});
-
 
 gulp.task('svgs', function () {
   return gulp
@@ -74,4 +71,16 @@ gulp.task('svgs', function () {
     .pipe(gulp.dest('views/utility'));
 });
 
-// sass --watch input:output
+gulp.task('browser-sync', function() {
+    browserSync.init({
+        proxy: "scotty.local"
+    });
+});
+
+gulp.task('watch', function() {
+  livereload.listen();
+  gulp.watch('assets/scss/**/*.scss', ['sass']);
+  gulp.watch('assets/js/**/*.js', ['scripts']);
+});
+
+
