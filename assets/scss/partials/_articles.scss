@@ -1,12 +1,75 @@
 .article-title {
-  // margin-top: 0;
+  margin-top: 0;
   // text-align: center;
   margin-bottom: $size-base;
   font-size: $size-h3;
   line-height: 1.1;
-  @include bp(md) {
+
+  @include bp(sm) {
     font-size: $size-h1;
   }
+}
+
+.article-header {
+  &.-recipe {
+
+  }
+}
+.article-header-inner {
+  @include grid($wrap: wrap);
+  @include bp(md) {
+    flex-wrap: nowrap;
+    @include grid;
+  }
+  @include bp(lg) {
+    align-items: center;
+  }
+}
+
+.article-content-inner {
+  @include grid($wrap: wrap);
+  @include bp(lg) {
+    flex-wrap: nowrap;
+  }
+}
+
+.article-content-main,
+.article-header-info {
+  order: 1;
+  @include bp(lg) {
+    order: 2;
+  }
+}
+
+.article-content-aside {
+  order: 2;
+  @include cell(full);
+  @include bp(lg) {
+    @include cell(third);
+    order: 1;
+  }
+}
+
+.article-header-thumb {
+  order: 2;
+  @include cell(full);
+  @include bp(md) {
+    order: 1;
+    @include cell(third);
+  }
+}
+
+.article-header-info > a {
+  order: 1;
+  @include bp(sm) {
+    order: 2;
+  }
+}
+
+.article-header-terms {
+  @include meta;
+  @include upperspace;
+  margin: 0;
 }
 
 .cat-indicator {
