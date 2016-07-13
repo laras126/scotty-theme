@@ -1,8 +1,9 @@
 
-<article class="tease tease-{{post.post_type}}" id="tease-{{post.ID}}">
+<article class="tease tease-{{post.post_type}}{{class ? ' ' ~ class}}" id="tease-{{post.ID}}">
 
   {% block tease_content %}
     <div class="tease-inner">
+
       <div class="tease-thumb">
         <a href="{{post.link}}">
         {% if post.get_thumbnail %}
@@ -11,21 +12,25 @@
           <img class="tease-thumb-img" src="{{site.theme.link}}/assets/img/svg/placeholder.svg" alt="">
         {% endif %}
         </a>
-        {# {% if post.post_type == 'recipe' %} #}
-          {# <span class="tease-type">{{post.post_type|capitalize}}</span> #}
-        {# {% endif %} #}
+        {% if post.post_type == 'recipe' %}
+          <span class="tease-type">{% if post.get_terms('recipe_type') %}{% for t in post.get_terms('recipe_type') %}{{t.name}}{{loop.last ? '' : ' / '}}{% endfor %}{% endif %}</span>
+        {% endif %}
       </div>
+
       <div class="tease-info">
+
         <header class="tease-header">
           <p class="date">{{post.date}}</p>
           <h2 class="tease-title"><a href="{{post.link}}">{{post.title}}</a></h2>
         </header>
+
         {% if post.post_excerpt %}
           <p>{{post.post_excerpt}}</p>
-          <a class="link-readmore" href="{{post.link}}">Read more...</a>
+          <a class="link-readmore meta" href="{{post.link}}">Read more...</a>
         {% endif %}
 
         {% include 'partials/edit-link.twig' %}
+
         <footer class="tease-footer">
           {% if post.get_terms('category') %}
             <p class="meta">Filed under:
@@ -35,6 +40,7 @@
             </p>
           {% endif %}
         </footer>
+
       </div>
     </div>
   {% endblock %}
