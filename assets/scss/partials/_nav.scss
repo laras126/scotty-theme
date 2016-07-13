@@ -120,3 +120,13 @@ a.cat-item-link {
 		font-weight: $font-weight-strong;
 	}
 }
+
+// Breadcrumbs
+
+.main-breadcrumbs {
+	font-size: $size-sml;
+	margin-bottom: $size-base;
+	margin-top: $size-base;
+	padding-bottom: $size-sml;
+	border-bottom: $border-accent;
+}
