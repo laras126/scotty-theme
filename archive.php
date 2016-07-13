@@ -19,6 +19,7 @@ $templates = array( 'archive.twig', 'index.twig' );
 $data = Timber::get_context();
 
 $data['title'] = 'Archive';
+$data['main_term'] = Timber::get_terms('category');
 if ( is_day() ) {
 	$data['title'] = 'Archive: '.get_the_date( 'D M Y' );
 } else if ( is_month() ) {
@@ -31,12 +32,14 @@ if ( is_day() ) {
 	$data['title'] = single_cat_title( '', false );
 	array_unshift( $templates, 'archive-' . get_query_var( 'cat' ) . '.twig' );
 } else if (is_tax()){
-    $term = get_queried_object(); // Is this the appropriate way to do it?
+  $term = get_queried_object(); // Is this the appropriate way to do it?
 	$data['title'] = $term->name;
 	$data['term'] = $term;
+	$data['main_term'] = $term;
 	array_unshift($templates, 'taxonomy-'.$term->taxonomy.'.twig', 'taxonomy.twig');
 } else if ( is_post_type_archive() ) {
-	$data['title'] = 'Archive: ' . post_type_archive_title( '', false );
+	$data['title'] = post_type_archive_title( '', false );
+	$data['main_term'] = Timber::get_terms('recipe_type');
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
 
