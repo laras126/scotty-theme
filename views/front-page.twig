@@ -7,10 +7,8 @@
 
   <div class="article contain-md">
     {% set img = TimberImage(post.hero_image) %}
-
     <p class="hero-tagline-main">{{post.main_tagline}}</p>
     <p class="hero-tagline-sub">{{post.sub_tagline}}</p>
     <img src="{{img.src}}" alt="Hero Image">
-
   </div>
 {% endblock %}
