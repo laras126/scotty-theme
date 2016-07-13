@@ -66,6 +66,9 @@ class StarterSite extends TimberSite {
 		// Our menu occurs on every page, so we add it to the global context.
 		$context['menu'] = new TimberMenu();
 
+
+		$context['sidebar'] = 'Sidebar will be here!';
+
 		// This 'site' context below allows you to access main site information like the site title or description.
 		$context['site'] = $this;
 
