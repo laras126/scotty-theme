@@ -1,1 +1,31 @@
 {% extends 'teases/tease.twig' %}
+
+{% block tease_info %}
+
+  <header class="tease-header">
+    <p class="date">{{post.date}}</p>
+    <h2 class="tease-title"><a href="{{post.link}}">{{post.title}}</a></h2>
+    {% if post.connected_book %}
+      {% set book = TimberPost(post.connected_book) %}
+      <p class="meta"><em>From <a href="{{book.link}}">{{book.title}}</a> by {{book.book_author}}</em></p>
+    {% endif %}
+  </header>
+
+  {% if post.post_excerpt %}
+    <p>{{post.post_excerpt}}</p>
+    <a class="link-readmore meta" href="{{post.link}}">Read more...</a>
+  {% endif %}
+
+  {% include 'partials/edit-link.twig' %}
+
+  <footer class="tease-footer">
+    {% if post.get_terms('category') %}
+      <p class="meta">Filed under:
+      {% for c in post.get_terms('category') %}
+        <a class="meta" href="{{c.link}}">{{c.title}}</a>
+      {% endfor %}
+      </p>
+    {% endif %}
+  </footer>
+
+{% endblock %}
