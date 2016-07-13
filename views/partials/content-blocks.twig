@@ -4,7 +4,7 @@
   {% set block_class = block.acf_fc_layout %}
 
   {% if block.acf_fc_layout == 'testimonial' %}
-    {% include 'blocks/testimonial.twig' %}
+    {% include 'blocks/testimonial.twig' with { contain : 'contain-sm' } %}
   {% elseif block.acf_fc_layout == 'text' %}
     {% include 'blocks/text.twig' with { contain : 'contain-sm' } %}
   {% elseif block.acf_fc_layout == 'connected_items' %}
