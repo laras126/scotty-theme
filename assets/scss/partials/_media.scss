@@ -15,13 +15,11 @@
 
 // Lazysizes
 
-.blur-up {
-  -webkit-filter: blur(5px);
-  filter: blur(5px);
-  transition: filter 400ms, -webkit-filter 400ms;
+.lazyload,
+.lazyloading {
+    opacity: 0;
 }
-
-.blur-up.lazyloaded {
-  -webkit-filter: blur(0);
-  filter: blur(0);
+.lazyloaded {
+    opacity: 1;
+    transition: opacity 300ms;
 }

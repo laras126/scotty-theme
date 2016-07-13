@@ -59,12 +59,12 @@ a.site-logo-link {
 }
 
 .site-main {
-
+  @include contain(xl);
   // .single &,
   // .page &,
   // body:not(.blog) & {
-    background-color: rgba(#FFF, 0.8);
-    @include contain;
+    // max-width: 1200px;
+    // margin: auto;
     // padding: 0;
   // }
 
@@ -75,12 +75,35 @@ a.site-logo-link {
   //   max-width: 1200px;
   // }
 
-  padding-top: $size-h3;
-  padding-bottom: $size-h3;
+  // padding-top: $size-h3;
+  // padding-bottom: $size-h3;
 
   @include bp(nav) {
     // padding-top: $size-h1*2.5;
   }
+
+
+}
+
+.main-inner {
+  @include bp(md) {
+    @include grid;
+  }
+}
+
+.main-content,
+.main-sidebar {
+  background-color: rgba(#FFF, 0.8);
+  padding-top: $size-h3;
+  padding-bottom: $size-h3;
+
+}
+
+.main-sidebar {
+  @include bp(md) {
+    @include cell(fourth);
+  }
+  margin-left: $size-base;
 }
 
 .site-footer {

@@ -4,10 +4,10 @@
 // ---
 
 html {
-	font-size: 90%;
+	// font-size: 95%;
+	font-size: 100%;
 
 	@include bp(sm) {
-		font-size: 100%;
 	}
 
 	@include bp(md) {
@@ -84,7 +84,6 @@ small {
 blockquote {
 	font-size: $size-h4;
 	font-style: italic;
-	padding-left: $size-base;
-	border-left: $border-accent;
 	margin: 0;
+	color: $color-accent-med;
 }
