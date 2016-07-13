@@ -6,12 +6,27 @@
   @include grid($wrap: wrap);
 }
 
-.tease-post {
+.archive .tease,
+.blog .tease {
   margin-bottom: $size-h3;
-  padding: $size-base;
-  @include bp(sm) {
-    @include cell(half);
+
+  &.-card {
+    @include bp(sm) {
+      @include cell(half);
+    }
   }
+
+  &.-row {
+    @include bp(sm) {
+      @include cell(third);
+    }
+  }
+
+  // &.-card {
+  //   @include bp(sm) {
+  //     @include cell(half);
+  //   }
+  // }
 
   // @include bp(lg) {
   //   @include cell(third);
@@ -19,8 +34,14 @@
 }
 
 .tease-recipe {
-  background-color: $color-accent-vlight;
+
   padding: $size-base;
+
+  .single & {
+    margin-bottom: $size-base;
+    margin-left: -$size-base;
+    margin-right: -$size-base;
+  }
 }
 
 .recipe-section {
@@ -32,10 +53,10 @@
   &-title {
 
     .-notes & {
-      margin-bottom: 0;
-      font-size: $size-sml;
-      border-top: $border-accent;
-      padding-top: $size-sml;
+      // margin-bottom: 0;
+      // font-size: $size-sml;
+      // border-top: $border-accent;
+      // padding-top: $size-sml;
     }
 
     font-size: $size-base;
@@ -43,17 +64,24 @@
   }
 }
 
-.recipe-credit {
+.tease-credit {
   margin-top: 0;
 }
 
-.tease-inner {
-  background-color: rgba($color-body-bkgd, 0.8);
-  border: 2px solid rgba($color-accent-light, 0.3);
+.tease-inner,
+.single .tease {
+  @include card;
 }
 
 .tease-thumb {
-  border-bottom: 5px solid $color-link;
+
+  // .-row & {
+  //   @include cell(third);
+  // }
+
+  // .-card & {
+    border-bottom: 5px solid $color-link;
+  // }
   position: relative;
 }
 
@@ -63,9 +91,7 @@
 }
 
 .tease-info {
-  // border-top: $border-accent;
   padding: $size-base;
-
   > p {
     @include bp(md) {
       font-size: $size-sml;
@@ -76,7 +102,6 @@
 .tease-title {
   margin-top: 0;
   line-height: $line-height-small;
-  // font-style: italic;
   font-size: $size-h4;
 }
 
@@ -93,7 +118,6 @@
 
 .date {
   margin-top: 0;
-  // margin-bottom: 0;
   @include meta($color-accent-med);
   font-style: italic;
 }
