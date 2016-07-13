@@ -1,10 +1,10 @@
 {% extends "base.twig" %}
 
 {% block header_content %}
-  <header class="contain-sm article-header">
+  <header class="contain-sm article-header text-center">
     <h1 class="article-title">{{title}}</h1>
+    <p class="meta-upper text-center">Filter by:</p>
   </header>
-  <p class="meta-upper text-center">Filter by:</p>
   <ul class="cat-list -header">
     <li class="cat-list-item">
       <a class="cat-item-link -all" href="{{posts_page_link}}">All Posts</a>
@@ -22,7 +22,11 @@
 {% block content %}
   <div class="tease-loop-wrap">
   	{% for post in posts %}
-  		{% include ['teases/tease-'~post.format~'.twig', 'teases/tease-'~post.post_type~'.twig','teases/tease.twig'] %}
+      {% if post.post_type == 'recipe' or post.post_type == 'post' %}
+    		{% include ['teases/tease-'~post.post_type~'.twig','teases/tease.twig'] with { class: '-card' } %}
+      {% elseif post.post_type == 'book' %}
+        {% include ['teases/tease-'~post.post_type~'.twig','teases/tease.twig'] with { class: '-row' } %}
+      {% endif %}
   	{% endfor %}
   </div>
 {% endblock %}
