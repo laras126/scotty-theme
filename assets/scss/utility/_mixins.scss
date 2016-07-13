@@ -45,11 +45,17 @@ $MQs: true;
 $c-pad: 10%;
 
 @mixin contain($size: md) {
-  max-width: $screen-lg;
   width: 95%;
   margin: 0 auto;
 
   @include bp(md) {
+    @if $size != xl {
+      max-width: $screen-lg;
+    }
+    @else {
+      max-width: $screen-xl;
+    }
+
     @if $size == sm {
       padding-left: $c-pad;
       padding-right: $c-pad;
@@ -73,6 +79,10 @@ $c-pad: 10%;
   @include contain(lg);
 }
 
+.contain-lg {
+  @include contain(xl);
+}
+
 
 
 
@@ -89,10 +99,9 @@ $sizes: (
 $gutter: $size-base;
 
 @mixin cell($size: false) {
-
   @if $size != false {
-      flex: 0 0 map-get($sizes, $size);
-      max-width: map-get($sizes, $size); // Fix for Firefox
+    flex: 0 0 map-get($sizes, $size);
+    max-width: map-get($sizes, $size); // Fix for Firefox
   }
 }
 
@@ -102,12 +111,13 @@ $gutter: $size-base;
 
   @if $guttered {
     & > * {
-      padding-left: $gutter/2;
-      padding-right: $gutter/2;
+      padding-left: $gutter;
+      padding-right: $gutter;
     }
-    margin-left: -$gutter/2;
-    margin-right: -$gutter/2;
+    margin-left: -$gutter;
+    margin-right: -$gutter;
   }
+
 }
 
 .grid {
@@ -153,6 +163,10 @@ $gutter: $size-base;
     }
 }
 
+@mixin card($bkgd: rgba($color-body-bkgd, 0.8), $border: 2px solid rgba($color-accent-light, 0.3)) {
+  background-color: $bkgd;
+  border: $border;
+}
 
 // Uppercase, slightly letterspaced text. Could use for headings.
 // Mainly a timesaver.
