@@ -11,6 +11,7 @@
 			{% include 'utility/svg-defs.svg' %}
 		</div>
 
+	{% if logged_in %}
 		<header class="site-header">
 			<div class="contain-lg">
 				{% block header %}
@@ -51,6 +52,17 @@
 			{% endblock %}
 		</footer>
 		{{ function('wp_footer') }}
+	{% else %}
+
+		<br><br>
+		<div class="contain-sm">
+			<div class="text-center main-content">
+				<h1 class="site-logo">{{site.title}}</h1>
+				<p class="meta-upper">{{site.description}}</p>
+				<em>Coming soon!</em>
+			</div>
+		</div>
+	{% endif %}
 
 	</body>
 </html>

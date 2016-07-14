@@ -78,6 +78,8 @@ class StarterSite extends TimberSite {
 		// Posts page link
 		$context['posts_page_link'] = get_permalink(get_option('page_for_posts' ));
 
+		$context['logged_in'] = is_user_logged_in();
+
 		return $context;
 	}
 
