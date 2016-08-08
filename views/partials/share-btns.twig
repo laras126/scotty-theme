@@ -1,0 +1,11 @@
+<ul class="share">
+  <li>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url={{post.link}}&title={{post.post_title}}&summary={{post.header_summary}}&source={{site.title}}" target="blank">{% include 'utility/svg.twig' with { file: 'linkedin',  prefix: 'icon' } %}</a>
+  </li>
+  <li>
+      <a href="https://twitter.com/intent/tweet?text={{post.twitter_message}}&url={{post.link|url_encode}}&via=weatherchannel" target="blank">{% include 'utility/svg.twig' with { file: 'twitter',  prefix: 'icon' } %}</a>
+  </li>
+  <li>
+      <a href="http://facebook.com/sharer/sharer.php?u={{post.link}}" target="blank">{% include 'utility/svg.twig' with { file: 'facebook',  prefix: 'icon' } %}</a>
+  </li>
+</ul>
