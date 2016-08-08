@@ -7,7 +7,17 @@
       {% block tease_thumb %}
         <a href="{{post.link}}">
         {% if post.get_thumbnail %}
-          <img class="tease-thumb-img" src="{{post.thumbnail.src|resize(500,300)}}" />
+          {% set img = post.thumbnail %}
+
+          <img
+            data-sizes="auto"
+            src="{{img.src|resize(50,30)}}"
+            data-src="{{img.src|resize(600, 360)}}"
+            data-srcset="
+                {{img.src|resize(600, 360)}} 600w,
+                {{img.src|resize(900, 540)}} 900w"
+            class="lazyload full-image" />
+
         {% else %}
           <img class="tease-thumb-img" src="{{site.theme.link}}/assets/img/svg/placeholder.svg" alt="">
         {% endif %}

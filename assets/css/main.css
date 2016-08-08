@@ -456,6 +456,7 @@ th {
   margin: 0 auto; }
 
 .full-image {
+  display: block;
   width: 100%; }
 
 .visually-hidden {

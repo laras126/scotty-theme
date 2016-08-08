@@ -21,7 +21,8 @@
         <p class="article-summary">{{post.post_excerpt}}</p>
       </div>
       <div class="contain-lg">
-        <img src="{{post.thumbnail.src|resize(900,400)}}" alt="{{post.thumbnail.title}}">
+        {# <img data-src="{{post.thumbnail.src|resize(900,400)}}" alt="{{post.thumbnail.title}}"> #}
+        {% include 'partials/srcset.twig' with { id: post.thumbnail, class: 'full-image' } %}
         {% if post.thumbnail.caption %}
           <p class="caption">{{post.thumbnail.caption}}</p>
         {% endif %}
