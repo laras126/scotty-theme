@@ -8,12 +8,28 @@
       {{breadcrumbs}}
     </div>
 
-    <header class="article-header -recipe contain-lg">
-      <div class="article-header-inner">
+    <section class="article-content contain-lg">
+      <div class="article-content-inner">
+
+        <header class="article-header-info">
+          <h1 class="article-title">{{post.title}}</h1>
+          <p class="tease-credit meta-upper">By {{ post.book_author_link ? '<a href="' ~ post.book_author_link ~ '">'}}{{post.book_author}}{{post.book_author_link ? '</a>'}}
+          </p>
+          {{post.get_field('review')}}
+          {% if post.amazon_link %}
+            <a class="btn btn-readmore" href="{{post.amazon_link}}">See it on Amazon</a>
+          {% endif %}
+
+          {% if post.get_terms('post_tag') %}
+            <p class="meta">Tagged:
+            {% for c in post.get_terms('post_tag') %}
+              <a class="meta" href="{{c.link}}">{{c.title}}</a>{{loop.last ? '' : ', '}}
+            {% endfor %}
+            </p>
+          {% endif %}
+        </header>
+
         <div class="article-header-thumb teaser">
-
-          {# {{function('the_post_thumbnail', 'medium')}} #}
-
           <img
             src="{{post.thumbnail.src('thumbnail')}}"
             data-srcset="{{post.thumbnail.src('medium')}} 500w,
@@ -25,49 +41,23 @@
           {% endif %}
         </div>
 
-        <div class="article-header-info">
-          <h1 class="article-title">{{post.title}}</h1>
-          <p class="tease-credit meta-upper">By {{post.book_author}}
-            {% if post.book_author_link %}
-              <a href="{{post.book_author_link}}">{% include 'utility/svg.twig' with { file: 'new-window', prefix: 'icon' } %}</a>
+      </div>
+    </section>
+
+
+    <div class="contain-lg text-center">
+      {% if related_recipes %}
+        <h5 class="recipe-section-title meta-upper">Related Recipes</h5>
+        <ul class="related-recipes">
+          {% for r in related_recipes %}
+            {% if r.title != post.title %}
+              <li>{{r.title}}</li>
             {% endif %}
-          </p>
-          <p class="article-summary">{{post.post_excerpt}}</p>
-        </div>
+          {% endfor %}
+        </ul>
+      {% endif %}
+   </div>
 
-      </div>
-    </header>
-
-    <section class="article-content contain-lg">
-      <div class="article-content-inner">
-
-        <aside class="article-content-aside recipe-section -notes">
-          {% if post.author_blurb %}
-            <h5 class="recipe-section-title meta-upper">About the Author</h5>
-            {{post.author_blurb|wpautop}}
-          {% endif %}
-          {% if related_recipes %}
-            <h5 class="recipe-section-title meta-upper">Related Recipes</h5>
-            <ul class="related-recipes">
-              {% for r in related_recipes %}
-                {% if r.title != post.title %}
-                  <li>{{r.title}}</li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-          {% endif %}
-        </aside>
-
-        <div class="article-content-main">
-          <div class="recipe-section -directions">
-            <h5 class="recipe-section-title">Review</h5>
-            {{post.review|wpautop}}
-          </div>
-          `
-        </div>
-
-      </div>
-		</section>
 
     <footer class="article-footer">
       {% include 'partials/prev-next.twig' %}
