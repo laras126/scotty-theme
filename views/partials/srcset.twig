@@ -3,9 +3,9 @@
 <img
   data-sizes="auto"
   src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-  data-src="{{img.src|resize(600)}}"
+  data-src="{{img.src('medium')}}"
   data-srcset="
-      {{img.src|resize(400)}} 300w,
-      {{img.src|resize(600)}} 600w,
-      {{img.src|resize(900)}} 900w"
+      {{img.src('thumbnail')}} 300w,
+      {{img.src('medium')}} 600w,
+      {{img.src('large')}} 900w"
   class="lazyload blur-up {{class}}" />
