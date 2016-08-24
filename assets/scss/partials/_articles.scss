@@ -30,10 +30,10 @@
 
 .article-content-main,
 .article-header-info {
-  // order: 1;
-  // @include bp(lg) {
-  //   order: 2;
-  // }
+  order: 1;
+  @include bp(lg) {
+    order: 2;
+  }
 }
 
 .article-content-aside {
