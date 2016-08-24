@@ -1,40 +1,36 @@
 {% extends 'teases/tease.twig' %}
 
 {% block tease_thumb %}
-    <a href="{{post.link}}">
-      {% if post.get_thumbnail %}
-        <img class="tease-thumb-img" src="{{post.thumbnail.src|resize(300)}}" />
-      {% else %}
-        <img class="tease-thumb-img" src="{{site.theme.link}}/assets/img/svg/placeholder.svg" alt="">
-      {% endif %}
-    </a>
+  <a href="{{post.link}}">
+    {% if post.get_thumbnail %}
+      {% include 'partials/srcset.twig' with { id: post.thumbnail.id, class: 'tease-thumb-img' } %}
+    {% else %}
+      <img class="tease-thumb-img" src="{{site.theme.link}}/assets/img/svg/placeholder.svg" alt="">
+    {% endif %}
+  </a>
 {% endblock %}
 
 {% block tease_info %}
-    <header class="tease-header">
-      <h2 class="tease-title -small"><a href="{{post.link}}">{{post.title}}</a></h2>
-      <p class="meta-upper">By {{post.book_author}}</p>
-    </header>
+  <header class="tease-header">
+    <h2 class="tease-title -small"><a href="{{post.link}}">{{post.title}}</a></h2>
+    <p class="meta-upper">By {{post.book_author}}</p>
+  </header>
 
-    {# {% if post.post_excerpt %}
-      <p>{{post.post_excerpt}}</p>
-    {% endif %} #}
+  {# {% if post.post_excerpt %}
+    <p>{{post.post_excerpt}}</p>
+  {% endif %} #}
 
-    <a class="link-readmore" href="{{post.link}}">Read more...</a><br>
+  <a class="link-readmore" href="{{post.link}}">Read more...</a><br>
 
-    {% if post.amazon_link %}
-      <a class="link-readmore" href="{{post.amazon_link}}">See it on Amazon</a><br>
+  {% include 'partials/edit-link.twig' %}
+
+  <footer class="tease-footer">
+    {% if post.get_terms('post_tag') %}
+      <p class="meta">Tagged:
+      {% for c in post.get_terms('post_tag') %}
+        <a class="meta" href="{{c.link}}">{{c.title}}</a>
+      {% endfor %}
+      </p>
     {% endif %}
-
-    {% include 'partials/edit-link.twig' %}
-
-    <footer class="tease-footer">
-      {% if post.get_terms('post_tag') %}
-        <p class="meta">Tagged:
-        {% for c in post.get_terms('post_tag') %}
-          <a class="meta" href="{{c.link}}">{{c.title}}</a>
-        {% endfor %}
-        </p>
-      {% endif %}
-    </footer>
+  </footer>
 {% endblock %}
