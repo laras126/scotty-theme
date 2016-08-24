@@ -72,24 +72,6 @@
             "tabs": "all",
             "toolbar": "basic",
             "media_upload": 0
-        },
-        {
-            "key": "field_57867197fee9e",
-            "label": "Author Blurb",
-            "name": "author_blurb",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0
         }
     ],
     "location": [
@@ -118,5 +100,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1468428719
+    "modified": 1472073312
 }
