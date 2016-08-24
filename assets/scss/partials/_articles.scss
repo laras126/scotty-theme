@@ -10,11 +10,6 @@
   }
 }
 
-.article-header {
-  &.-recipe {
-
-  }
-}
 .article-header-inner {
   @include grid($wrap: wrap);
   @include bp(md) {
@@ -35,10 +30,10 @@
 
 .article-content-main,
 .article-header-info {
-  order: 1;
-  @include bp(lg) {
-    order: 2;
-  }
+  // order: 1;
+  // @include bp(lg) {
+  //   order: 2;
+  // }
 }
 
 .article-content-aside {
