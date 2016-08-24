@@ -12,10 +12,13 @@
       <div class="article-header-inner">
         <div class="article-header-thumb teaser">
 
-          <picture>
-            <source data-srcset="{{post.thumbnail.src|resize(400)}}" media="(min-width: 840px)">
-            <img data-src="{{post.thumbnail.src|resize(600,300)}}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="full-image lazyload">
-          </picture>
+          {# {{function('the_post_thumbnail', 'medium')}} #}
+
+          <img
+            src="{{post.thumbnail.src('thumbnail')}}"
+            data-srcset="{{post.thumbnail.src('medium')}} 500w,
+                {{post.thumbnail.src('large')}} 800w"
+            class="full-image lazyload">
 
           {% if post.thumbnail.caption %}
             <p class="caption">{{post.thumbnail.caption}}</p>
@@ -60,11 +63,7 @@
             <h5 class="recipe-section-title">Review</h5>
             {{post.review|wpautop}}
           </div>
-          {% if post.get_terms('post_tag') %}
-            <p class="meta">
-              Tagged: {% for c in post.get_terms('post_tag') %}<a href="{{c.link}}">{{c.name}}</a>{{loop.last ? '' : ', '}}{% endfor %}
-            </p>
-          {% endif %}
+          `
         </div>
 
       </div>
