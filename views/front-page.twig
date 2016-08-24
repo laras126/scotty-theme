@@ -1,14 +1,9 @@
 
-{# No specific markup for the home page, yet. Add it here inside a content block! #}
-
 {% extends "base.twig" %}
 
 {% block content %}
-
-  <div class="article contain-md">
-    {% set img = TimberImage(post.hero_image) %}
-    <p class="hero-tagline-main">{{post.main_tagline}}</p>
-    <p class="hero-tagline-sub">{{post.sub_tagline}}</p>
-    {% include 'partials/srcset.twig' with { id: img, class: 'full-image' } %}
-  </div>
+  <h1>{{post.title}}</h1>
+  {% include 'partials/srcset.twig' with { id: post.hero_image, class: 'full-image' } %}
+  <p>{{post.main_tagline}}</p>
+  <p>{{post.sub_tagline}}</p>
 {% endblock %}
