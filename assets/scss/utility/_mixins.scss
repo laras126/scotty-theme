@@ -96,7 +96,7 @@ $sizes: (
   sixth:  16.66666667%
 );
 
-$gutter: $size-base;
+$gutter: $size-xsml;
 
 @mixin cell($size: false) {
   @if $size != false {
@@ -148,7 +148,6 @@ $gutter: $size-base;
 
 // Rotate color schemes
 
-// I like to have a mixin for rotating background and text colors.
 @mixin rotate($bkgd: $color-rotate-bkgd, $text: $color-rotate-text, $link-clr: $color-rotate-link) {
     background-color: $bkgd;
     color: $text;
@@ -168,8 +167,7 @@ $gutter: $size-base;
   border: $border;
 }
 
-// Uppercase, slightly letterspaced text. Could use for headings.
-// Mainly a timesaver.
+// Typography
 
 @mixin upperspace() {
 	letter-spacing: 1px;
@@ -188,6 +186,14 @@ $gutter: $size-base;
 .meta-upper {
   @include meta;
   @include upperspace;
+}
+
+// Lists
+
+@mixin unstyle-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 // Poop poop clearfix.
