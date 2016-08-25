@@ -7,9 +7,10 @@
 @mixin button($background, $text-color: $color-text-light) {
 	background-color: $background;
 	color: $text-color !important;
-	padding: $size-base $size-h4;
+	padding: $size-xsml $size-sml;
 	text-decoration: none;
   border-radius: 3px;
+  font-size: $size-sml;
 
   &:hover {
     background-color: darken($background, 8%);
