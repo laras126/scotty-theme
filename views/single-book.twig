@@ -11,25 +11,11 @@
     <section class="article-content contain-lg">
       <div class="article-content-inner">
 
-        <header class="article-header-info">
-          <h1 class="article-title">{{post.title}}</h1>
-          <p class="tease-credit meta-upper">By {{ post.book_author_link ? '<a href="' ~ post.book_author_link ~ '">'}}{{post.book_author}}{{post.book_author_link ? '</a>'}}
-          </p>
-          {{post.get_field('review')}}
-
-          {% if post.get_terms('post_tag') %}
-            <p class="meta">Tagged:
-            {% for c in post.get_terms('post_tag') %}
-              <a class="meta" href="{{c.link}}">{{c.title}}</a>{{loop.last ? '' : ', '}}
-            {% endfor %}
-            </p>
-          {% endif %}
-        </header>
-
-        <div class="article-header-thumb teaser">
+        <aside class="article-left-rail teaser">
           <a href="{{post.amazon_link}}" target="blank">
-            {% include 'partials/srcset.twig' with { id: post.thumbnail.id, class: 'full-image' } %}
+            {% include 'partials/srcset.twig' with { id: post.thumbnail.id, class: 'article-thumb-img' } %}
           </a>
+
           {% if post.thumbnail.caption %}
             <p class="caption">{{post.thumbnail.caption}}</p>
           {% endif %}
@@ -39,27 +25,55 @@
               <a class="btn btn-amazon" target="blank" href="{{post.amazon_link}}">See it on Amazon</a>
             </div>
           {% endif %}
+        </aside>
+
+        <header class="article-header">
+          <h1 class="article-title">{{post.title}}</h1>
+          <p class="tease-credit meta-upper">By {{ post.book_author_link ? '<a href="' ~ post.book_author_link ~ '">'}}{{post.book_author}}{{post.book_author_link ? '</a>'}}
+          </p>
+        </header>
+
+        <div class="article-main">
+          {{post.get_field('review')}}
+          {% if post.get_terms('post_tag') %}
+            <p class="meta">Tagged:
+            {% for c in post.get_terms('post_tag') %}
+              <a class="meta" href="{{c.link}}">{{c.title}}</a>{{loop.last ? '' : ', '}}
+            {% endfor %}
+            </p>
+          {% endif %}
+
+          {% if related_recipes %}
+            <h3 class="article-footer-title">Selected Recipes</h3>
+            <ul class="article-footer-related">
+              {% for recipe in related_recipes %}
+                <li class="related-item">
+                  <a href="{{recipe.link}}" class="related-item-inner teaser">
+                    <div class="related-item-info">
+                      <h5 class="related-item-title">{{recipe.title}}{% if recipe.terms('recipe_type') %}
+                        <span class="related-item-type">{% for type in recipe.terms('recipe_type') %}
+                          {{type.name}}
+                        {% endfor %}</span>
+                      {% endif %}</h5>
+                      <p class="related-item-excerpt">{{recipe.post_excerpt}}</p>
+                    </div>
+                    <div class="related-item-thumb">
+                      <img data-src="{{recipe.thumbnail.src('thumbnail')}}" class="lazyload">
+                    </div>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
         </div>
 
       </div>
     </section>
 
-
-    <div class="contain-lg text-center">
-      {% if related_recipes %}
-        <h5 class="recipe-section-title meta-upper">Related Recipes</h5>
-        <ul class="related-recipes">
-          {% for r in related_recipes %}
-            {% if r.title != post.title %}
-              <li>{{r.title}}</li>
-            {% endif %}
-          {% endfor %}
-        </ul>
-      {% endif %}
-   </div>
-
-
     <footer class="article-footer">
+      <div class="contain-lg">
+
+      </div>
       {% include 'partials/prev-next.twig' %}
     </footer>
 
