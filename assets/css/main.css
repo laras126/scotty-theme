@@ -576,7 +576,8 @@ blockquote {
   background-color: #454545;
   color: #FFF !important;
   padding: 1rem 1.4rem;
-  text-decoration: none; }
+  text-decoration: none;
+  border-radius: 3px; }
   .btn-default:hover {
     background-color: #313131; }
   .btn-default:active {
@@ -588,7 +589,8 @@ blockquote {
   background-color: #0062d4;
   color: #FFF !important;
   padding: 1rem 1.4rem;
-  text-decoration: none; }
+  text-decoration: none;
+  border-radius: 3px; }
   .btn-info:hover {
     background-color: #004fab; }
   .btn-info:active {
@@ -596,11 +598,48 @@ blockquote {
   .btn-info .icon {
     fill: #FFF; }
 
+.btn-readmore {
+  background-color: #0062d4;
+  color: #FFF !important;
+  padding: 1rem 1.4rem;
+  text-decoration: none;
+  border-radius: 3px; }
+  .btn-readmore:hover {
+    background-color: #004fab; }
+  .btn-readmore:active {
+    background-color: #003f88; }
+  .btn-readmore .icon {
+    fill: #FFF; }
+
+.btn-amazon {
+  background-color: #484848;
+  color: #FFF !important;
+  padding: 1rem 1.4rem;
+  text-decoration: none;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background-image: url(../img/svg/amazon.svg);
+  background-repeat: no-repeat;
+  background-position: 0.6rem center;
+  padding-left: 3.12rem;
+  font-size: 0.8rem;
+  margin: 1rem 0; }
+  .btn-amazon:hover {
+    background-color: #343434; }
+  .btn-amazon:active {
+    background-color: #222222; }
+  .btn-amazon .icon {
+    fill: #FFF; }
+
 .btn-wrap {
   text-align: center;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex; }
+  @media (min-width: 980px) {
+    .btn-wrap.-full-lg > * {
+      width: 100%; } }
 
 .btn-icon,
 .btn-wrap {
@@ -665,8 +704,8 @@ input[type="checkbox"] {
   cursor: pointer; }
 
 .icon {
-  height: 1.8rem;
-  width: 1.8rem; }
+  height: 2.6rem;
+  width: 2.6rem; }
   .article-title .icon {
     fill: #777777; }
 
@@ -1154,7 +1193,12 @@ a.site-logo-link {
 .caption {
   font-size: 0.8rem;
   margin: 0;
-  color: #777777; }
+  text-align: center;
+  color: #777777;
+  padding: 0.3rem; }
+  .caption.-highlighted {
+    border: 1px solid #B2B2B2;
+    background-color: #FFF; }
 
 .lazyload,
 .lazyloading {

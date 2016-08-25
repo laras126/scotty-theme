@@ -2,7 +2,17 @@
 .caption {
   font-size: $size-sml;
   margin: 0;
+  text-align: center;
   color: $color-text-med;
+  padding: $size-xsml/2;
+
+  &.-highlighted {
+    // padding-left: $size-xsml;
+    // padding-right: $size-xsml;
+    // padding-bottom: $size-xsml;
+    border: 1px solid $color-accent-light;
+    background-color: $color-accent-vlight;
+  }
 }
 
 .hero-img {
