@@ -9,6 +9,7 @@
 	color: $text-color !important;
 	padding: $size-base $size-h4;
 	text-decoration: none;
+  border-radius: 3px;
 
   &:hover {
     background-color: darken($background, 8%);
@@ -35,9 +36,31 @@
 	@include button($color-notice-info, $color-text-light);
 }
 
+// Info button, maybe for "Read More" or something.
+.btn-readmore {
+  @include button($color-notice-info, $color-text-light);
+}
+
+.btn-amazon {
+  @include button(#484848, $color-text-light);
+  @include upperspace;
+  background-image: url(../img/svg/amazon.svg);
+  background-repeat: no-repeat;
+  background-position: $size-xsml center;
+  padding-left: $size-h1*1.2;
+  font-size: $size-sml;
+  margin: $size-base 0;
+}
+
 .btn-wrap {
   text-align: center;
   display: flex;
+
+  &.-full-lg > * {
+    @include bp(lg) {
+      width: 100%;
+    }
+  }
 }
 
 .btn-icon,
