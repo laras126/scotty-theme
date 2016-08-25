@@ -67,7 +67,7 @@ $color-text-med: 		  $grey-med;
 $color-text-dark: 		$black;
 
 $color-notice-success:	 $teal;
-$color-notice-info:		   lighten($dark-blue, 20%);
+$color-notice-info:		   lighten(desaturate($dark-blue, 50%), 20%);
 $color-notice-danger:		 $red;
 $color-notice-warning:	 $orange;
 
