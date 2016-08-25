@@ -150,16 +150,16 @@ add_action( 'after_setup_theme', 'twc_editor_styles' );
 
 // Removes the regular excerpt box. We're not getting rid of it, we're just moving it above the wysiwyg editor
 function oz_remove_normal_excerpt() {
-	remove_meta_box( 'postexcerpt' , 'post' , 'normal' );
+	remove_meta_box( 'postexcerpt', array('post', 'book', 'recipe'), 'normal' );
 }
 add_action( 'admin_menu' , 'oz_remove_normal_excerpt' );
 
 // Add the excerpt meta box back in with a custom screen location
 function oz_add_excerpt_meta_box( $post_type ) {
-	if ( in_array( $post_type, array( 'post', 'recipe' ) ) ) {
+	if ( in_array( $post_type, array( 'post', 'recipe', 'book' ) ) ) {
 		add_meta_box(
 			'oz_postexcerpt',
-			__( 'Excerpt', 'thetab-theme' ),
+			__( 'Summary', 'thetab-theme' ),
 			'sd_post_excerpt_meta_box',
 			$post_type,
 			'after_title',
@@ -183,6 +183,8 @@ function oz_run_after_title_meta_boxes() {
 	do_meta_boxes( get_current_screen(), 'after_title', $post );
 }
 add_action( 'edit_form_after_title', 'oz_run_after_title_meta_boxes' );
+
+
 
 
 
