@@ -14,6 +14,7 @@
 
 $context = Timber::get_context();
 $post = Timber::query_post();
+$context['post'] = $post;
 
 if ( is_singular('book')) {
   $recipe_args = array(
@@ -22,10 +23,9 @@ if ( is_singular('book')) {
     'numberposts' => -1,
     'post_type' => 'recipe'
   );
+  $context['related_recipes'] = Timber::get_posts($recipe_args);
 }
 
-$context['post'] = $post;
-$context['related_recipes'] = Timber::get_posts($recipe_args);
 $context['comment_form'] = TimberHelper::get_comment_form();
 $context['sidebar_class'] = '-has_sidebar';
 
