@@ -47,9 +47,11 @@
   @include upperspace;
   background-image: url(../img/svg/amazon.svg);
   background-repeat: no-repeat;
-  background-position: $size-xsml center;
-  padding-left: $size-h1*1.2;
-  font-size: $size-sml;
+  background-position: $size-sml center;
+  padding-left: $size-h1;
+  background-size: $size-h4;
+  // font-size: $size-sml;
+  // padding-top: $size-sml;
   margin: $size-base 0;
 }
 

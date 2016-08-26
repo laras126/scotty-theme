@@ -74,13 +74,18 @@
   @include unstyle-list;
   @include grid($wrap: nowrap);
   flex-direction: column;
+  padding-top: $size-xsml;
 }
 
   .related-item {
-    border-top: $border-accent;
+    border-bottom: $border-accent;
     padding-top: $size-xsml;
     padding-bottom: $size-xsml;
     // border: 1px solid transparent;
+
+    &:first-child {
+      border-top: $border-accent;
+    }
 
     a {
       color: $color-text-dark;
@@ -125,12 +130,12 @@
 
   .related-item-excerpt {
     // @include meta($color: $color-text-dark);
-    margin-top: $size-sml;
+    margin-top: $size-xsml;
     // font-size: $size-sml;
   }
 
   .related-item-thumb {
-    @include cell(half);
+    @include cell(third);
     margin-left: auto;
     @include bp(sm) {
       @include cell(fourth);
