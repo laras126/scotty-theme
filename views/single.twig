@@ -2,45 +2,77 @@
 
 {% block content %}
 
-{#   {% for c in post.get_terms('category') %}
-  {% include 'utility/svg.twig' with { file: 'rocks-glass', prefix: 'icon' } %}
-  {% endfor %}
- #}
 	<article class="post-type-{{post.post_type}} post-format-{{post.format}}" id="post-{{post.ID}}">
-    <header class="article-header text-center">
+
+    <div class="contain-lg">
       {{breadcrumbs}}
-      <div class="contain-sm">
-        <p class="date">{{post.date}}</p>
-        <h1 class="article-title">{{post.title}}</h1>
-        {% if post.get_terms('category') %}
-          <p class="meta">Category:
-          {% for c in post.get_terms('category') %}<a href="{{c.link}}">{{c.name}}</a>{{loop.last ? '' : ', '}}
-        {% endfor %}
-        </p>
+    </div>
+
+    <section class="article-content contain-lg">
+      <div class="article-content-inner">
+
+        {% if left_rail %}
+          <aside class="article-left-rail teaser">
+          {% block single_left_rail %}
+              <a href="{{post.amazon_link}}" target="blank">
+                {% include 'partials/srcset.twig' with { id: post.thumbnail.id, class: 'article-thumb-img' } %}
+              </a>
+
+              {% if post.thumbnail.caption %}
+                <p class="caption">{{post.thumbnail.caption}}</p>
+              {% endif %}
+
+              {% if post.amazon_link %}
+                <div class="btn-wrap -full-lg">
+                  <a class="btn btn-amazon" target="blank" href="{{post.amazon_link}}">See it on Amazon</a>
+                </div>
+              {% endif %}
+          {% endblock %}
+          </aside> <!-- .article-left-rail -->
         {% endif %}
-        <p class="article-summary">{{post.post_excerpt}}</p>
+
+        <header class="article-header">
+          {% block single_header %}
+            <p class="date">{{post.date}}</p>
+            <h1 class="article-title">{{post.title}}</h1>
+            {% if post.get_terms('category') %}
+              <p class="meta">Category:
+              {% for c in post.get_terms('category') %}<a href="{{c.link}}">{{c.name}}</a>{{loop.last ? '' : ', '}}
+            {% endfor %}
+            </p>
+            {% endif %}
+
+            <p class="article-summary">{{post.post_excerpt}}</p>
+
+            {% include 'partials/srcset.twig' with { id: post.thumbnail, class: 'full-image' } %}
+            {% if post.thumbnail.caption %}
+              <p class="caption">{{post.thumbnail.caption}}</p>
+            {% endif %}
+
+          {% endblock %}
+        </header> <!-- .article-header -->
+
+        <div class="article-main">
+          {% block single_main %}
+            {% include 'partials/content-blocks.twig' %}
+          {#   {% if post.format == 'link' %}
+              <div class="text-center btn-wrap">
+                <a target="blank" href="{{post.link_url}}" class="btn-info btn-icon"><span>Go to Link</span> {% include 'utility/svg.twig' with { file: 'new-window', prefix: 'icon' } %}</a>
+              </div>
+            {% endif %} #}
+          {% endblock %}
+        </div> <!-- .article-main -->
+
       </div>
-      <div class="contain-lg">
-        {# <img data-src="{{post.thumbnail.src|resize(900,400)}}" alt="{{post.thumbnail.title}}"> #}
-        {% include 'partials/srcset.twig' with { id: post.thumbnail, class: 'full-image' } %}
-        {% if post.thumbnail.caption %}
-          <p class="caption">{{post.thumbnail.caption}}</p>
-        {% endif %}
-      </div>
-    </header>
-    {# <div class="contain-lg"> #}
-    {# </div> #}
-    <section class="article-content">
-      {% include 'partials/content-blocks.twig' %}
-      {% if post.format == 'link' %}
-        <div class="text-center btn-wrap">
-          <a target="blank" href="{{post.link_url}}" class="btn-info btn-icon"><span>Go to Link</span> {% include 'utility/svg.twig' with { file: 'new-window', prefix: 'icon' } %}</a>
-        </div>
-      {% endif %}
-		</section>
+    </section> <!-- .article-content -->
+
     <footer class="article-footer">
-      {% include 'partials/prev-next.twig' %}
-    </footer>
+      {% block single_footer %}
+        {% include 'partials/prev-next.twig' %}
+      {% endblock %}
+    </footer> <!-- .article-footer -->
+
     {% include 'partials/edit-link.twig' %}
+
 	</article>
 {% endblock %}

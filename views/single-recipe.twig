@@ -1,94 +1,109 @@
-{% extends "base.twig" %}
+{% extends "single.twig" %}
+{% set left_rail = true %}
+{% block single_header %}
 
-{% block content %}
-
-	<article class="post-type-{{post.post_type}} post-format-{{post.format}}" id="post-{{post.ID}}">
-
-    {# <pre>{{dump(post)}}</pre> #}
-
-    <div class="contain-lg">
-      {{breadcrumbs}}
+  <div class="article-header-inner">
+    <div class="article-header-info">
+      {% if post.get_terms('recipe_type') %}
+        <p class="article-header-terms">
+          {% for c in post.get_terms('recipe_type') %}<a href="{{c.link}}">{{c.name}}</a>{{loop.last ? '' : ' / '}}{% endfor %}
+        </p>
+      {% endif %}
+      <h1 class="article-title">{{post.title}}</h1>
+      {% if post.connected_book %}
+        {% set book = TimberPost(post.connected_book) %}
+          <p class="credit meta"><em>Source: <br><a href="{{book.link}}">{{book.title}}</a> by {{book.book_author}}</em></p>
+      {% endif %}
+      <p class="article-summary">{{post.post_excerpt}}</p>
     </div>
 
-    <header class="article-header -recipe contain-lg">
-      <div class="article-header-inner">
-        <div class="article-header-thumb teaser">
-
-          <picture>
-            <source data-srcset="{{post.thumbnail.src|resize(400,400)}}" media="(min-width: 840px)">
-            <img data-src="{{post.thumbnail.src|resize(600,300)}}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="full-image lazyload">
-          </picture>
-
-          {% if post.thumbnail.caption %}
-            <p class="caption">{{post.thumbnail.caption}}</p>
-          {% endif %}
-
-        </div>
-        <div class="article-header-info">
-          {% if post.get_terms('recipe_type') %}
-            <p class="article-header-terms">
-              {% for c in post.get_terms('recipe_type') %}<a href="{{c.link}}">{{c.name}}</a>{{loop.last ? '' : ' / '}}{% endfor %}
-            </p>
-          {% endif %}
-          <h1 class="article-title">{{post.title}}</h1>
-          {% if post.connected_book %}
-            {% set book = TimberPost(post.connected_book) %}
-              <p class="credit meta">From <a href="{{book.link}}">{{book.title}}</a> by {{book.book_author}}</p>
-          {% endif %}
-          <p class="article-summary">{{post.post_excerpt}}</p>
-        </div>
-      </div>
-    </header>
-
-    <section class="article-content contain-lg">
-      <div class="article-content-inner">
-
-        <aside class="article-content-aside recipe-section -notes">
-          {# <h6>{{book.title}}</h6>
-          <p>By {{book.book_author}}</p>
-          <p>{{book.post_excerpt}}</p>
- #}
-          {% if post.notes %}
-            <h5 class="recipe-section-title meta-upper">Notes</h5>
-            {{post.notes|wpautop}}
-          {% endif %}
-          {% if related_recipes %}
-            <h5 class="recipe-section-title meta-upper">Related Recipes</h5>
-            <ul class="related-recipes">
-              {% for r in related_recipes %}
-                {% if r.title != post.title %}
-                  <li>{{r.title}}</li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-          {% endif %}
-        </aside>
-
-        <div class="article-content-main">
-          <div class="recipe-section -ingredients">
-            <h5 class="recipe-section-title">Ingredients</h5>
-            {{post.ingredients_text|wpautop}}
-          </div>
-          <div class="recipe-section -directions">
-            <h5 class="recipe-section-title">Directions</h5>
-            {{post.directions|wpautop}}
-          </div>
-          {% if post.get_terms('post_tag') %}
-            <p class="meta">
-              Tagged: {% for c in post.get_terms('post_tag') %}<a href="{{c.link}}">{{c.name}}</a>{{loop.last ? '' : ', '}}{% endfor %}
-            </p>
-          {% endif %}
-        </div>
-
-      </div>
-		</section>
-
-    <footer class="article-footer">
-      {% include 'partials/prev-next.twig' %}
-    </footer>
-
-    {% include 'partials/edit-link.twig' %}
-
-	</article>
+  </div>
 
 {% endblock %}
+
+
+{% block single_left_rail %}
+
+  {% include 'partials/srcset.twig' with { id: post.thumbnail.id, size: 'thumb', class: 'full-image' } %}
+
+  {% if post.thumbnail.caption %}
+    <p class="caption">{{post.thumbnail.caption}}</p>
+  {% endif %}
+
+  {% if post.get_terms('post_tag') %}
+    <p class="meta">
+      Tagged: {% for c in post.get_terms('post_tag') %}<a href="{{c.link}}">{{c.name}}</a>{{loop.last ? '' : ', '}}{% endfor %}
+    </p>
+  {% endif %}
+  {# {% if post.connected_book %}
+    {% set book = TimberPost(post.connected_book) %}
+    <div class="related-item">
+      <h4 class="article-aside-title">Recipe Credit</h4>
+      <br>
+      <a href="{{book.link}}" class="teaser">
+      <img data-src="{{book.thumbnail.src('thumbnail')}}" class="lazyload">
+      <h5>{{book.title}}{% if book.terms('book_type') %}
+        <span class="related-item-type">{% for type in book.terms('book_type') %}
+          {{type.name}}
+        {% endfor %}</span>
+      {% endif %}</h5>
+      {% if book.post_excerpt or book._yoast_wpseo_metadesc %}
+        <p class="article-aside-text">{{ book.post_excerpt ? book.post_excerpt : book._yoast_wpseo_metadesc }}</p>
+      {% endif %}
+      </a>
+    </div>
+  {% endif %} #}
+
+{% endblock %}
+
+
+{% block single_main %}
+
+  <section class="article-chunk">
+    <h2 class="article-chunk-title">Ingredients</h2>
+    <div class="article-chunk-text -ingredients">
+      {{post.ingredients_text|wpautop}}
+    </div>
+  </section>
+
+  <section class="article-chunk">
+    <h2 class="article-chunk-title">Directions</h2>
+    {{post.directions|wpautop}}
+  </section>
+
+  {% if post.notes %}
+    <section class="article-chunk -minor">
+      <h3 class="article-aside-title">Notes</h3>
+      <div class="article-aside-text">{{post.get_field('notes')}}</div>
+    </section>
+  {% endif %}
+
+  {% if post.connected_book %}
+    {% set book = TimberPost(post.connected_book) %}
+    <section class="article-chunk">
+      <h3 class="article-chunk-title">Recipe Source</h3>
+      <p>Don't forget to read more about this recipe and others in {{book.book_author}}'s book.</p>
+      <div class="related-item">
+        <a href="{{book.link}}" class="related-item-inner teaser">
+          <div class="related-item-thumb">
+            <img data-src="{{book.thumbnail.src('thumbnail')}}" class="lazyload">
+          </div>
+          <div class="related-item-info">
+            <h5 class="related-item-title">{{book.title}}{% if book.terms('book_type') %}
+              <span class="related-item-type">{% for type in book.terms('book_type') %}
+                {{type.name}}
+              {% endfor %}</span>
+            {% endif %}</h5>
+            <p class="meta">by {{book.book_author}}</p>
+
+            {% if book.post_excerpt or book._yoast_wpseo_metadesc %}
+              <p class="related-item-excerpt">{{ book.post_excerpt ? book.post_excerpt : book._yoast_wpseo_metadesc }}</p>
+            {% endif %}
+          </div>
+        </a>
+      </div>
+    </section>
+  {% endif %}
+
+{% endblock %}
+
