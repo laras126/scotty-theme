@@ -3,9 +3,10 @@ single
   article-header
     title
     byline
-  article-right-rail
+  article-left-rail
     article-thumb-img
-    btn-amazon
+    btn-amazon -BOOK
+    note -RECIPE
   article-main
     content
     tags
