@@ -29,7 +29,7 @@
             "label": "Ingredients",
             "name": "ingredients_text",
             "type": "wysiwyg",
-            "instructions": "List the ingredients in this recipe using a \"Bulleted List\". Link to any recommended brands or related posts e.g. if the recipe includes simple syrup, link to your simple syrup recipe.",
+            "instructions": "List the ingredients in this recipe using a <strong>\"Bulleted List\"<\/strong>. Link to any recommended brands or related posts e.g. if the recipe includes simple syrup, link to your simple syrup recipe.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -37,7 +37,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "<ul>\r\n<li>Ingredient name<\/li>\r\n<li>Another ingredient name<\/li>\r\n<\/ul>",
             "tabs": "all",
             "toolbar": "basic",
             "media_upload": 0
@@ -106,5 +106,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1468436355
+    "modified": 1472491461
 }
