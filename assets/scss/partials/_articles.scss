@@ -25,7 +25,7 @@
   width: 100%;
   @include bp(sm) {
     width: 33.33333%;
-    float: left;
+    float: right;
   }
 }
 
@@ -40,7 +40,7 @@
 .article-header {
   @include bp(sm) {
     width: 66.66666%;
-    float: right;
+    float: left;
   }
 }
 
@@ -58,8 +58,8 @@
 }
 
 .article-header,
-.article-right-rail {
-  text-align: center;
+.article-left-rail {
+  // text-align: center;
 }
 
 .article-footer-title {
@@ -67,21 +67,26 @@
   // @include upperspace;
   // border-top: $border-accent;
   padding-top: $size-xsml;
+  padding-bottom: $size-xsml;
 
 }
 
-.article-footer-related {
+.article-related {
   @include unstyle-list;
-  @include grid($wrap: nowrap);
+  @include grid($wrap: nowrap, $guttered: false);
   flex-direction: column;
   padding-top: $size-xsml;
 }
 
   .related-item {
-    border-bottom: $border-accent;
-    padding-top: $size-xsml;
-    padding-bottom: $size-xsml;
-    // border: 1px solid transparent;
+    border: $border-accent;
+    padding: $size-xsml $size-sml;
+    @include bp(sm) {
+      margin-left: -$size-sml;
+      margin-right: -$size-sml;
+    }
+    background-color: rgba($color-accent-vlight, 0.5);
+
 
     &:first-child {
       border-top: $border-accent;
@@ -93,6 +98,7 @@
 
     &:hover {
       background-color: $color-accent-vlight;
+      border-style: solid;
     }
     // @include bp(sm) {
     //   @include cell(half);
@@ -131,7 +137,7 @@
   .related-item-excerpt {
     // @include meta($color: $color-text-dark);
     margin-top: $size-xsml;
-    // font-size: $size-sml;
+    font-size: $size-sml;
   }
 
   .related-item-thumb {
@@ -160,12 +166,54 @@
     // }
   }
 
+.article-chunk {
+  margin-top: $size-h4;
 
+  &.-minor {
+    margin-top: 0;
+  }
+}
 
+.article-chunk-title {
+  @include upperspace;
+  margin-top: 0;
+  font-size: $size-h4;
+  color: $color-text-med;
+}
 
+.article-chunk-text {
+  &.-ingredients > ul {
 
+    list-style-type: none;
+    padding-left: 0;
 
+    > li {
+      padding-bottom: $size-xsml/2;
+      &:before {
+        padding-right: $size-xsml/2;
+        width: $size-xsml;
+        content: url('../img/svg/arrow-right.svg');
+        top: 5px;
+        position: relative;
+      }
+    }
+  }
+}
 
+.article-aside {
+
+}
+
+.article-aside-title {
+  @include upperspace;
+  font-size: $size-h5;
+  color: $color-text-med;
+}
+
+.article-aside-text,
+.article-aside-text p {
+  @include meta;
+}
 
 
 
@@ -188,5 +236,8 @@
 
 .article-summary {
   font-size: $size-h5;
+  @include bp(sm) {
+    margin-bottom: 0;
+  }
 }
 

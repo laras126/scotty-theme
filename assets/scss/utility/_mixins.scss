@@ -96,7 +96,7 @@ $sizes: (
   sixth:  16.66666667%
 );
 
-$gutter: $size-xsml;
+$gutter: $size-base;
 
 @mixin cell($size: false) {
   @if $size != false {
