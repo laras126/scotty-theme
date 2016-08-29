@@ -11,7 +11,7 @@
 			{% include 'utility/svg-defs.svg' %}
 		</div>
 
-	{% if logged_in %}
+	{# {% if logged_in %} #}
 		<header class="site-header">
 			<div class="contain-lg">
 				{% block header %}
@@ -52,7 +52,7 @@
 			{% endblock %}
 		</footer>
 		{{ function('wp_footer') }}
-	{% else %}
+{# 	{% else %}
 
 		<br><br>
 		<div class="contain-sm">
@@ -63,6 +63,6 @@
 			</div>
 		</div>
 	{% endif %}
-
+ #}
 	</body>
 </html>
