@@ -11,3 +11,11 @@ single
     content
     tags
   article-footer
+
+
+tease
+  tease-thumb
+  tease-header
+  tease-info
+  tease-footer
+
