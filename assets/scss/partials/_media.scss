@@ -27,9 +27,43 @@
 
 .lazyload,
 .lazyloading {
+    // opacity: 0;
+}
+.lazyloaded {
+    // opacity: 1;
+    // transition: opacity 0.25s;
+}
+
+
+.teaser {
+  background-image: url('../img/util/ripple.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  @include bp(sm) {
+    min-height: 150px;
+  }
+}
+
+.lazyload {
+  // min-height: 100px;
+}
+
+.lazyload,
+.lazyloading {
     opacity: 0;
 }
 .lazyloaded {
     opacity: 1;
-    transition: opacity 300ms;
+    transition: opacity 0.2s;
 }
+
+// .blur-up {
+//     -webkit-filter: blur(5px);
+//     filter: blur(5px);
+//     transition: filter 250ms, -webkit-filter 250ms;
+// }
+
+// .blur-up.lazyloaded {
+//     -webkit-filter: blur(0);
+//     filter: blur(0);
+// }
