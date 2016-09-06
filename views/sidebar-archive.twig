@@ -1,0 +1,8 @@
+<h1>{{title}}</h1>
+<p>A sentence or two about how you find much inspiration from books and authors. Something indicating that all information is recycled, and this is where you get yours.</p>
+<p class="meta-upper">Filter by:</p>
+<ul>
+{% for c in cats %}
+  <li>{{c.name}}</li>
+{% endfor %}
+</ul>
