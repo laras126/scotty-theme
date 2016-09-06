@@ -93,15 +93,29 @@ a.site-logo-link {
 
 .main-content,
 .main-sidebar {
-  background-color: rgba(#FFF, 0.8);
+
   padding-top: $size-h3;
   padding-bottom: $size-h3;
 
 }
 
+.main-content {
+
+  .single & {
+    background-color: rgba(#FFF, 0.8);
+  }
+
+  order: 1;
+}
+
 .main-sidebar {
   @include bp(md) {
     @include cell(fourth);
+    order: 0;
+  }
+
+  @include bp(lg) {
+    @include cell(fifth);
   }
   margin-left: $size-base;
 }
