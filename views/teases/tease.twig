@@ -1,35 +1,28 @@
 
-<article class="tease tease-{{post.post_type}}{{class ? ' ' ~ class}}" id="tease-{{post.ID}}">
+<article class="tease -{{post.post_type}}{{class ? ' ' ~ class}}" id="tease-{{post.ID}}">
 
 {% block tease_content %}
   <div class="tease-inner">
 
-    <div class="tease-thumb">
+    <div class="tease-thumb teaser -{{post.post_type}}">
       {% block tease_thumb %}
         <a href="{{post.link}}">
-        {% if post.get_thumbnail %}
-          {% set img = post.thumbnail %}
-
-          <img
-            data-sizes="auto"
-            src="{{img.src|resize(50,30)}}"
-            data-src="{{img.src|resize(600, 360)}}"
-            data-srcset="
-                {{img.src|resize(600, 360)}} 600w,
-                {{img.src|resize(900, 540)}} 900w"
-            class="lazyload full-image" />
-
-        {% else %}
-          <img class="tease-thumb-img" src="{{site.theme.link}}/assets/img/svg/placeholder.svg" alt="">
-        {% endif %}
+          {% if post.get_thumbnail %}
+            {% include 'partials/srcset.twig' with { id: post.thumbnail.id, class: 'tease-thumb-img', size: 'thumb' } %}
+          {% else %}
+            <img class="tease-thumb-img" src="{{site.theme.link}}/assets/img/svg/placeholder.svg" alt="">
+          {% endif %}
         </a>
-        {% if post.post_type == 'recipe' %}
-          <span class="tease-type">{% if post.get_terms('recipe_type') %}{% for t in post.get_terms('recipe_type') %}{{t.name}}{{loop.last ? '' : ' / '}}{% endfor %}{% endif %}</span>
+
+        {% if type %}
+          <span class="tease-type">{% if post.get_terms(type) %}{% for t in post.get_terms(type) %}{{t.name}}{{loop.last ? '' : ' / '}}{% endfor %}{% endif %}</span>
         {% endif %}
+
       {% endblock %}
+
     </div>
 
-    <div class="tease-info">
+    <div class="tease-info -{{post.post_type}}">
       {% block tease_info %}
 
         <header class="tease-header">
