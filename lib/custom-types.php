@@ -64,7 +64,7 @@ register_post_type( 'recipe', $args );
 
 
 $book_labels = array(
-  'name'                  => _x( 'Books', 'Post Type General Name', 'sd' ),
+  'name'                  => _x( 'Library', 'Post Type General Name', 'sd' ),
   'singular_name'         => _x( 'Book', 'Post Type Singular Name', 'sd' ),
   'menu_name'             => __( 'Books', 'sd' ),
   'name_admin_bar'        => __( 'Book', 'sd' ),
