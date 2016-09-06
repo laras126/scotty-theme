@@ -17,7 +17,6 @@
 $templates = array( 'archive.twig', 'index.twig' );
 
 $data = Timber::get_context();
-
 $data['title'] = 'Archive';
 $data['main_term'] = Timber::get_terms('category');
 if ( is_day() ) {
@@ -39,10 +38,12 @@ if ( is_day() ) {
 	array_unshift($templates, 'taxonomy-'.$term->taxonomy.'.twig', 'taxonomy.twig');
 } else if ( is_post_type_archive() ) {
 	$data['title'] = post_type_archive_title( '', false );
+	$data['post_type'] = get_post_type();
 	$data['main_term'] = Timber::get_terms('recipe_type');
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
 
+$data['sidebar'] = Timber::get_sidebar('sidebar-archive.php');
 $data['posts'] = Timber::get_posts();
 
 Timber::render( $templates, $data );
