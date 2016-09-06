@@ -11,6 +11,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
+    modernizr = require('gulp-modernizr'),
     browserSync = require('browser-sync').create(),
     livereload = require('gulp-livereload');
 
@@ -51,9 +52,14 @@ gulp.task('js-head', function() {
     .pipe(gulp.dest('assets/js/build'));
 });
 
+gulp.task('modernizr', function() {
+  return gulp.src('assets/js/build/*.js')
+    .pipe(modernizr())
+    .pipe(gulp.dest('assets/js/vendor-head'))
+});
+
 gulp.task('svgs', function () {
-  return gulp
-    .src('assets/img/svg/*.svg')
+  return gulp.src('assets/img/svg/*.svg')
     .pipe(rename({prefix: 'shape-'}))
     .pipe(svgmin(function (file) {
         var prefix = path.basename(file.relative, path.extname(file.relative));
@@ -80,7 +86,7 @@ gulp.task('browser-sync', function() {
 gulp.task('watch', function() {
   livereload.listen();
   gulp.watch('assets/scss/**/*.scss', ['sass']);
-  gulp.watch('assets/js/**/*.js', ['scripts']);
+  gulp.watch('assets/js/**/*.js', ['js']);
 });
 
 
