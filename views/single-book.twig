@@ -2,7 +2,7 @@
 {% set left_rail = true %}
 
 {% block single_left_rail %}
-  <a href="{{post.amazon_link}}" target="blank">
+  <a href="{{post.amazon_link}}" target="blank" class="teaser">
     {% include 'partials/srcset.twig' with { id: post.thumbnail.id, class: 'article-thumb-img' } %}
   </a>
 
@@ -24,7 +24,9 @@
 {% endblock %}
 
 {% block single_main %}
+
   {{post.get_field('review')}}
+
   {% if post.get_terms('post_tag') %}
     <p class="meta">Tagged:
     {% for c in post.get_terms('post_tag') %}
@@ -34,26 +36,28 @@
   {% endif %}
 
   {% if related_recipes %}
-    <h3 class="article-footer-title">Selected Recipes</h3>
-    <ul class="article-related">
-      {% for recipe in related_recipes %}
-        <li class="related-item">
-          <a href="{{recipe.link}}" class="related-item-inner teaser">
-            <div class="related-item-info">
-              <h5 class="related-item-title">{{recipe.title}}{% if recipe.terms('recipe_type') %}
-                <span class="related-item-type">{% for type in recipe.terms('recipe_type') %}
-                  {{type.name}}{{ loop.last ? '' : ' / '}}
-                {% endfor %}</span>
-              {% endif %}</h5>
-              <p class="related-item-excerpt">{{recipe.post_excerpt}}</p>
-            </div>
-            <div class="related-item-thumb">
-              <img data-src="{{recipe.thumbnail.src('thumbnail')}}" class="lazyload">
-            </div>
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
+    <section class="article-chunk">
+      <h3 class="article-chunk-title">Selected Recipes</h3>
+      <ul class="article-related">
+        {% for recipe in related_recipes %}
+          <li class="related-item">
+            <a href="{{recipe.link}}" class="related-item-inner teaser">
+              <div class="related-item-info">
+                <h5 class="related-item-title">{{recipe.title}}{% if recipe.terms('recipe_type') %}
+                  <span class="related-item-type">{% for type in recipe.terms('recipe_type') %}
+                    {{type.name}}{{ loop.last ? '' : ' / '}}
+                  {% endfor %}</span>
+                {% endif %}</h5>
+                <p class="related-item-excerpt">{{recipe.post_excerpt}}</p>
+              </div>
+              <div class="related-item-thumb">
+                <img data-src="{{recipe.thumbnail.src('thumbnail')}}" class="lazyload">
+              </div>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
   {% endif %}
 
 {% endblock %}

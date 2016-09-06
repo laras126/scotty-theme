@@ -32,14 +32,14 @@
         {% endif %}
 
         <header class="article-header">
+
           {% block single_header %}
             <p class="date">{{post.date}}</p>
             <h1 class="article-title">{{post.title}}</h1>
             {% if post.get_terms('category') %}
               <p class="meta">Category:
-              {% for c in post.get_terms('category') %}<a href="{{c.link}}">{{c.name}}</a>{{loop.last ? '' : ', '}}
-            {% endfor %}
-            </p>
+                {% for c in post.get_terms('category') %}<a href="{{c.link}}">{{c.name}}</a>{{loop.last ? '' : ', '}}{% endfor %}
+              </p>
             {% endif %}
 
             <p class="article-summary">{{post.post_excerpt}}</p>

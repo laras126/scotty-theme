@@ -1,5 +1,6 @@
 {% extends "single.twig" %}
 {% set left_rail = true %}
+
 {% block single_header %}
 
   <div class="article-header-inner">
@@ -18,9 +19,7 @@
     </div>
 
   </div>
-
 {% endblock %}
-
 
 {% block single_left_rail %}
 
@@ -35,27 +34,24 @@
       Tagged: {% for c in post.get_terms('post_tag') %}<a href="{{c.link}}">{{c.name}}</a>{{loop.last ? '' : ', '}}{% endfor %}
     </p>
   {% endif %}
-  {# {% if post.connected_book %}
+ {#  {% if post.connected_book %}
     {% set book = TimberPost(post.connected_book) %}
-    <div class="related-item">
-      <h4 class="article-aside-title">Recipe Credit</h4>
-      <br>
-      <a href="{{book.link}}" class="teaser">
-      <img data-src="{{book.thumbnail.src('thumbnail')}}" class="lazyload">
+    <h4 class="article-aside-title">Recipe Credit</h4>
+
+    <a href="{{book.link}}" class="teaser">
       <h5>{{book.title}}{% if book.terms('book_type') %}
         <span class="related-item-type">{% for type in book.terms('book_type') %}
           {{type.name}}
         {% endfor %}</span>
       {% endif %}</h5>
+      <br>
+      <img data-src="{{book.thumbnail.src('thumbnail')}}" class="lazyload">
       {% if book.post_excerpt or book._yoast_wpseo_metadesc %}
         <p class="article-aside-text">{{ book.post_excerpt ? book.post_excerpt : book._yoast_wpseo_metadesc }}</p>
       {% endif %}
       </a>
-    </div>
   {% endif %} #}
-
 {% endblock %}
-
 
 {% block single_main %}
 
@@ -104,6 +100,4 @@
       </div>
     </section>
   {% endif %}
-
 {% endblock %}
-
