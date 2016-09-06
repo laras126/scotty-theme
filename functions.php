@@ -22,7 +22,10 @@ class StarterSite extends TimberSite {
 				'quote',
 				'link'
 		) );
+
 		add_theme_support( 'post-thumbnails' );
+		set_post_thumbnail_size( 400, 400, false );
+
 		add_theme_support( 'menus' );
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
@@ -65,9 +68,9 @@ class StarterSite extends TimberSite {
 
 		// Our menu occurs on every page, so we add it to the global context.
 		$context['menu'] = new TimberMenu();
-
-
-		$context['sidebar'] = 'Sidebar will be here!';
+		if (!is_archive()) {
+			$context['sidebar'] = Timber::get_sidebar('sidebar.php');
+		}
 
 		// This 'site' context below allows you to access main site information like the site title or description.
 		$context['site'] = $this;
