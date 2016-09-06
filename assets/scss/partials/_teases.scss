@@ -1,12 +1,119 @@
 
+// Not yet:
 // Two displays for teases. Cards that are two across and rows.
+
+
+.tease-loop-wrap {
+  column-count: 2;
+  column-gap: $gutter;
+
+  @include bp(sm) {
+    column-gap: $gutter*2;
+  }
+
+  @include bp(lg) {
+    column-count: 3;
+  }
+
+  &.-book {
+    @include bp(sm) {
+      column-count: 3;
+    }
+
+    // @include bp(md) {
+    //   column-count: 2;
+    // }
+
+    @include bp(lg) {
+      column-count: 3;
+    }
+
+
+    @include bp(xl) {
+      column-count: 4;
+    }
+  }
+}
+
 
 .tease {
   position: relative;
+  display: inline-block;
+  width: 100%;
+  background-color: $color-accent-vlight;
+  min-height: 100px;
+  margin-bottom: $gutter;
+
+  @include bp(sm) {
+    margin-bottom: $gutter*2;
+  }
+
+  &.-book {
+    border: 2px solid $color-accent-light;
+  }
 }
 
-.tease-loop-wrap {
-  @include grid($wrap: wrap);
+// .tease-info {
+//   &.-book P
+
+// }
+
+.tease-overlay-link {
+
+  > * {
+  }
+
+  > h2 {
+    width: 100%;
+    text-overlow: ellipsis;
+
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    // z-index: $z-mid;
+    white-space: wrap;
+    overflow: hidden;
+    margin-top: auto;
+    margin-bottom: $size-base;
+
+  }
+
+  p {
+    width: 100%;
+
+    margin-bottom: 0;
+    margin-top: 0;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+  }
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-grow: 1;
+
+  position: absolute;
+  z-index: $z-back;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  padding: $size-h1 $size-base $size-base;
+  background-color: rgba($color-accent-vlight, 0.8);
+  opacity: 0;
+
+  @include bp(md) {
+    transition: 0.25s ease opacity;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
 .tease-title {
@@ -17,19 +124,19 @@
 
 .archive .tease,
 .blog .tease {
-  margin-bottom: $size-h3;
+  // margin-bottom: $size-h3;
 
-  &.-card {
-    @include bp(sm) {
-      @include cell(half);
-    }
-  }
+  // &.-card {
+  //   @include bp(sm) {
+  //     @include cell(half);
+  //   }
+  // }
 
-  &.-row {
-    @include bp(sm) {
-      @include cell(third);
-    }
-  }
+  // &.-row {
+  //   @include bp(sm) {
+  //     @include cell(third);
+  //   }
+  // }
 
   // &.-card {
   //   @include bp(sm) {
@@ -42,16 +149,16 @@
   // }
 }
 
-.tease-recipe {
+// .tease-recipe {
 
-  padding: $size-base;
+//   padding: $size-base;
 
-  .single & {
-    margin-bottom: $size-base;
-    margin-left: -$size-base;
-    margin-right: -$size-base;
-  }
-}
+//   .single & {
+//     margin-bottom: $size-base;
+//     margin-left: -$size-base;
+//     margin-right: -$size-base;
+//   }
+// }
 
 .recipe-section {
 
@@ -77,27 +184,34 @@
   margin-top: 0;
 }
 
-.tease-inner,
-.single .tease {
-  @include card;
+.tease {
+  &.-recipe {
+    @include card;
+  }
 }
 
 .tease-thumb {
-  border-bottom: 5px solid $color-link;
+  // border-bottom: 5px solid $color-link;
   position: relative;
 }
 
 .tease-thumb-img {
+  // transform: translateZ(0);
+
+  // &:hover {
+  //   opacity: 0.3;
+  // }
+
   display: block;
   width: 100%;
 }
 
 .tease-info {
-  padding: $size-base;
+  // padding: $size-base;
   > p {
-    @include bp(md) {
-      font-size: $size-sml;
-    }
+    // @include bp(md) {
+    //   font-size: $size-sml;
+    // }
   }
 }
 
@@ -112,10 +226,12 @@
   position: absolute;
   top: 0;
   right: 0;
+  z-index: $z-top;
   @include upperspace;
   background-color: rgba($color-accent-dark, 0.7);
   color: $color-text-light;
   padding: $size-xsml $size-sml;
+  font-size: $size-xsml;
 }
 
 .date {
