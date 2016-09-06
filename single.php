@@ -9,9 +9,6 @@
  * @since    Timber 0.1
  */
 
-
-// get recipes with meta key
-
 $context = Timber::get_context();
 $post = Timber::query_post();
 $context['post'] = $post;
@@ -27,7 +24,7 @@ if ( is_singular('book')) {
 }
 
 $context['comment_form'] = TimberHelper::get_comment_form();
-$context['sidebar_class'] = '-has_sidebar';
+// $context['sidebar_class'] = '-has_sidebar';
 
 if ( function_exists( 'yoast_breadcrumb' ) ) {
     $context['breadcrumbs'] = yoast_breadcrumb('<nav id="breadcrumbs" class="main-breadcrumbs">','</nav>', false );
@@ -38,3 +35,8 @@ if ( post_password_required( $post->ID ) ) {
 } else {
 	Timber::render( array( 'single-' . $post->ID . '.twig', 'single-' . $post->post_type . '.twig', 'single.twig' ), $context );
 }
+
+
+
+
+
