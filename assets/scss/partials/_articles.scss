@@ -142,6 +142,7 @@
 
   .related-item-thumb {
     @include cell(third);
+    margin-bottom: auto;
     margin-left: auto;
     @include bp(sm) {
       @include cell(fourth);

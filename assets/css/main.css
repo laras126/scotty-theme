@@ -1100,6 +1100,7 @@ a.site-logo-link {
       -ms-flex: 0 0 33.33333%;
           flex: 0 0 33.33333%;
   max-width: 33.33333%;
+  margin-bottom: auto;
   margin-left: auto; }
   @media (min-width: 600px) {
     .related-item-thumb {

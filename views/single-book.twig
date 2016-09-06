@@ -41,7 +41,7 @@
       <ul class="article-related">
         {% for recipe in related_recipes %}
           <li class="related-item">
-            <a href="{{recipe.link}}" class="related-item-inner teaser">
+            <a href="{{recipe.link}}" class="related-item-inner">
               <div class="related-item-info">
                 <h5 class="related-item-title">{{recipe.title}}{% if recipe.terms('recipe_type') %}
                   <span class="related-item-type">{% for type in recipe.terms('recipe_type') %}
@@ -50,7 +50,7 @@
                 {% endif %}</h5>
                 <p class="related-item-excerpt">{{recipe.post_excerpt}}</p>
               </div>
-              <div class="related-item-thumb">
+              <div class="related-item-thumb teaser">
                 <img data-src="{{recipe.thumbnail.src('thumbnail')}}" class="lazyload">
               </div>
             </a>
