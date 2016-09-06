@@ -52,6 +52,21 @@ a.nav-trigger {
 }
 
 
+// Nav items
+
+.nav-item-link:hover {
+	transition: 0.25s ease all;
+	background-color: rgba($color-accent-vlight, 0.9);
+	color: $color-accent-dark;
+}
+
+.current-menu-item > a {
+	background-color: $color-accent-vlight;
+	color: $color-accent-dark;
+}
+
+
+
 // Previous/Next
 
 .prev-next {
@@ -92,34 +107,34 @@ a.nav-trigger {
 
 // Category list nav
 
-.cat-list {
-	list-style-type: none;
-	display: flex;
-	margin: 0;
-	padding: 0;
-	justify-content: center;
-	flex-wrap: wrap;
+// .cat-list {
+// 	list-style-type: none;
+// 	display: flex;
+// 	margin: 0;
+// 	padding: 0;
+// 	justify-content: center;
+// 	flex-wrap: wrap;
 
-	li {
-		padding: 0 $size-base $size-base $size-base;
+// 	li {
+// 		padding: 0 $size-base $size-base $size-base;
 
-		&:first-child {
-			padding-left: 0;
-		}
-	}
-}
+// 		&:first-child {
+// 			padding-left: 0;
+// 		}
+// 	}
+// }
 
-a.cat-item-link {
+// a.cat-item-link {
 
-	&.-all {
-		color: $color-accent-dark;
-	}
+// 	&.-all {
+// 		color: $color-accent-dark;
+// 	}
 
-	&.-current {
-		color: $color-accent-dark;
-		font-weight: $font-weight-strong;
-	}
-}
+// 	&.-current {
+// 		color: $color-accent-dark;
+// 		font-weight: $font-weight-strong;
+// 	}
+// }
 
 // Breadcrumbs
 
